@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApexSoft — Proqram Həlləri | Tezliklə</title>
+<meta name="description" content="ApexSoft — Azərbaycan üçün müasir proqram həlləri. Tezliklə.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f9f7;
+  --bg2:#ffffff;
+  --soft:#eef5f0;
+  --soft2:#e3efe7;
+  --line:#dce8e0;
+  --line2:#cadccf;
+  --green:#16a34a;
+  --green-d:#0f7d38;
+  --green-dd:#0a5c29;
+  --green-l:#e7f6ed;
+  --green-ll:#f1faf4;
+  --mint:#34d399;
+  --ink:#0f1b14;
+  --ink2:#2c4035;
+  --mut:#5c6f63;
+  --mut2:#8497899;
+  --r:18px;
+  --sh:0 4px 24px rgba(15,125,56,.07);
+  --sh2:0 16px 50px rgba(15,125,56,.13);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.1;font-weight:700;letter-spacing:-.025em}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--green);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:100;background:rgba(246,249,247,.82);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(150deg,var(--mint),var(--green-d));display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;font-size:22px;color:#fff;box-shadow:0 6px 18px rgba(15,125,56,.32);position:relative}
+.logo-mark::after{content:'';position:absolute;inset:0;border-radius:12px;background:linear-gradient(150deg,rgba(255,255,255,.45),transparent 50%)}
+.logo-txt{font-family:'Sora';font-weight:800;font-size:23px;letter-spacing:-.02em;color:var(--ink)}
+.logo-txt b{color:var(--green-d)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{padding:10px 18px;border-radius:10px;font-size:14.5px;font-weight:500;color:var(--mut);transition:.2s}
+.nav-links a:hover{color:var(--ink);background:var(--soft)}
+.nav-links a.active{color:var(--green-d);background:var(--green-l)}
+.nav-cta{margin-left:8px;background:linear-gradient(135deg,var(--green),var(--green-d))!important;color:#fff!important;font-weight:600!important;box-shadow:0 6px 18px rgba(15,125,56,.28);padding:11px 22px!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(15,125,56,.4)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+/* ===== PAGE ===== */
+.page{display:none}
+.page.active{display:block;animation:fu .5s cubic-bezier(.16,.8,.2,1)}
+@keyframes fu{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.section{padding:100px 0}
+
+/* ===== HERO (poster) ===== */
+.hero{position:relative;overflow:hidden;padding:30px 0 80px}
+.hero-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(circle at 85% 8%,var(--green-l) 0%,transparent 42%),
+  radial-gradient(circle at 8% 95%,rgba(52,211,153,.10) 0%,transparent 40%),
+  linear-gradient(180deg,var(--green-ll) 0%,var(--bg) 60%);
+}
+.hero-bg::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(15,125,56,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(15,125,56,.022) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse at 60% 30%,#000,transparent 72%)}
+.hero-in{position:relative;z-index:1;text-align:center;max-width:880px;margin:0 auto;padding-top:50px}
+.soon{display:inline-flex;align-items:center;gap:11px;padding:11px 24px;border-radius:100px;background:#fff;border:1px solid var(--line2);box-shadow:var(--sh);font-family:'Sora';font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin-bottom:34px}
+.soon .led{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-l);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.8);opacity:.6}}
+.hero-big{font-family:'Sora';font-size:clamp(60px,13vw,150px);font-weight:800;line-height:.92;letter-spacing:-.05em;margin-bottom:8px;background:linear-gradient(120deg,var(--green-dd) 0%,var(--green) 55%,var(--mint) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-family:'Sora';font-size:clamp(20px,3vw,30px);font-weight:600;color:var(--ink2);letter-spacing:-.02em;margin-bottom:26px}
+.hero h1{font-size:clamp(30px,4.4vw,46px);font-weight:700;color:var(--ink);margin-bottom:22px;letter-spacing:-.03em}
+.hero .lead{font-size:19px;color:var(--mut);max-width:600px;margin:0 auto 38px;font-weight:300}
+.hero-btns{display:flex;gap:15px;flex-wrap:wrap;align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:11px;padding:16px 34px;border-radius:100px;font-family:'Sora';font-weight:600;font-size:15.5px;cursor:pointer;border:none;transition:.3s}
+.btn-green{background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;box-shadow:0 12px 34px rgba(15,125,56,.3)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 18px 46px rgba(15,125,56,.42)}
+.btn-light{background:#fff;color:var(--ink);border:1px solid var(--line2);box-shadow:var(--sh)}
+.btn-light:hover{transform:translateY(-2px);border-color:var(--green);color:var(--green-d)}
+.btn .ar{display:inline-flex;width:26px;height:26px;border-radius:50%;align-items:center;justify-content:center;font-size:13px;background:rgba(255,255,255,.2)}
+.btn-light .ar{background:var(--green-l);color:var(--green-d)}
+
+/* social inline in hero */
+.hero-social{margin-top:40px;display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap}
+.hero-social .lbl{font-size:14px;color:var(--mut);font-weight:400}
+.hs-btn{display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:100px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh);font-family:'Sora';font-weight:600;font-size:14px;color:var(--ink);transition:.25s}
+.hs-btn:hover{transform:translateY(-2px);border-color:var(--green);color:var(--green-d)}
+.hs-btn svg{width:18px;height:18px}
+
+/* ===== WHAT WE BUILD ===== */
+.sh{text-align:center;max-width:680px;margin:0 auto 64px}
+.sh .tag{display:inline-block;font-family:'Sora';font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);background:var(--green-l);padding:7px 16px;border-radius:100px;margin-bottom:18px}
+.sh h2{font-size:clamp(32px,4.4vw,48px);font-weight:800;margin-bottom:16px;color:var(--ink)}
+.sh h2 .g{color:var(--green-d)}
+.sh p{font-size:17px;color:var(--mut);font-weight:300}
+
+.what{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.wc{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:36px 30px;transition:.3s;position:relative;overflow:hidden}
+.wc:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--line2)}
+.wc.ready::before{content:'HAZIR';position:absolute;top:18px;right:18px;font-family:'Sora';font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--green-d);background:var(--green-l);padding:5px 11px;border-radius:100px}
+.wc.soon-tag::before{content:'TEZLİKLƏ';position:absolute;top:18px;right:18px;font-family:'Sora';font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--mut);background:var(--soft);padding:5px 11px;border-radius:100px}
+.wc .ic{width:58px;height:58px;border-radius:16px;background:linear-gradient(150deg,var(--green-l),#fff);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:27px;margin-bottom:22px}
+.wc h3{font-size:21px;font-weight:700;margin-bottom:10px;color:var(--ink)}
+.wc p{color:var(--mut);font-size:14.5px;font-weight:300}
+
+/* ===== WHY ===== */
+.why{background:linear-gradient(135deg,var(--green-d),var(--green-dd));border-radius:28px;padding:60px;position:relative;overflow:hidden;color:#fff}
+.why::before{content:'';position:absolute;top:-110px;right:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(52,211,153,.3),transparent 70%)}
+.why::after{content:'';position:absolute;bottom:-130px;left:-70px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 70%)}
+.why-in{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+.why h2{font-size:38px;font-weight:800;margin-bottom:18px}
+.why h2 .y{color:#bbf7d0}
+.why p{font-size:16.5px;color:#d6f5e1;font-weight:300;line-height:1.8}
+.wl{display:grid;gap:13px}
+.wl .li{display:flex;align-items:flex-start;gap:15px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.1);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12)}
+.wl .ck{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:#bbf7d0;color:var(--green-dd);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.wl .tx b{display:block;font-family:'Sora';font-size:15.5px;font-weight:600;margin-bottom:2px}
+.wl .tx span{font-size:13.5px;color:#cdeed8;font-weight:300}
+
+/* ===== CTA ===== */
+.cta{background:var(--bg2);border:1px solid var(--line);border-radius:28px;padding:66px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--sh)}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--green-l),transparent 55%)}
+.cta-in{position:relative;z-index:1}
+.cta h2{font-size:clamp(32px,4.2vw,44px);font-weight:800;margin-bottom:16px;color:var(--ink)}
+.cta h2 .g{color:var(--green-d)}
+.cta p{font-size:17px;color:var(--mut);font-weight:300;margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto}
+
+/* ===== CONTACT ===== */
+.cgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:44px}
+.cinfo{display:grid;gap:16px}
+.ci{display:flex;align-items:flex-start;gap:17px;background:var(--bg2);border:1px solid var(--line);padding:26px;border-radius:16px;transition:.25s;box-shadow:var(--sh)}
+.ci:hover{transform:translateY(-2px);border-color:var(--line2)}
+.ci .ic{width:50px;height:50px;border-radius:13px;background:linear-gradient(150deg,var(--green-l),#fff);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:23px;flex-shrink:0}
+.ci b{display:block;font-family:'Sora';font-size:17px;font-weight:700;margin-bottom:4px;color:var(--ink)}
+.ci span,.ci a{color:var(--mut);font-size:14.5px;font-weight:300}
+.ci a{display:block;margin-bottom:2px}
+.ci a:hover{color:var(--green-d)}
+.csocial{display:flex;gap:12px}
+.csocial a{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;border-radius:15px;border:1px solid var(--line);background:var(--bg2);font-family:'Sora';font-weight:600;font-size:14.5px;color:var(--ink);transition:.25s;box-shadow:var(--sh)}
+.csocial a:hover{transform:translateY(-3px);border-color:var(--green);color:var(--green-d)}
+.csocial svg{width:20px;height:20px}
+.cform{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:42px;box-shadow:var(--sh)}
+.cform h3{font-size:24px;font-weight:800;margin-bottom:7px;color:var(--ink)}
+.cform .sub{color:var(--mut);font-size:14px;font-weight:300;margin-bottom:28px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-family:'Sora';font-size:13px;font-weight:600;margin-bottom:8px;color:var(--ink2)}
+.fg input,.fg textarea{width:100%;padding:14px 17px;background:var(--green-ll);border:1px solid var(--line);border-radius:12px;color:var(--ink);font-family:'Inter';font-size:15px;transition:.2s}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--mut2)}
+.fg input:focus,.fg textarea:focus{outline:none;border-color:var(--green);background:#fff;box-shadow:0 0 0 3px var(--green-l)}
+.fg textarea{resize:vertical;min-height:110px}
+.fnote{font-size:13px;color:var(--mut);margin-top:14px;text-align:center;font-weight:300}
+
+/* ===== FOOTER ===== */
+.footer{border-top:1px solid var(--line);padding:64px 0 30px;margin-top:100px;background:var(--green-ll)}
+.fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:46px;margin-bottom:44px}
+.footer .fabout{font-size:14.5px;color:var(--mut);font-weight:300;max-width:340px;margin-top:18px;line-height:1.8}
+.fsocial{display:flex;gap:12px;margin-top:20px}
+.fsocial a{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;transition:.25s;cursor:pointer;box-shadow:var(--sh)}
+.fsocial a:hover{transform:translateY(-2px);border-color:var(--green)}
+.fsocial svg{width:20px;height:20px}
+.fcol h4{font-family:'Sora';font-size:16px;font-weight:700;margin-bottom:20px;color:var(--ink)}
+.fcol a{display:block;color:var(--mut);font-size:14.5px;font-weight:300;margin-bottom:13px;cursor:pointer;transition:.2s}
+.fcol a:hover{color:var(--green-d)}
+.fbot{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13.5px;color:var(--mut);font-weight:300}
+
+/* ===== FLOATING ===== */
+.float{position:fixed;bottom:26px;right:26px;z-index:90;display:flex;flex-direction:column;gap:12px}
+.float a{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh2);transition:.25s;cursor:pointer}
+.float a:hover{transform:translateY(-3px) scale(1.05)}
+.float .wa{background:#25d366}
+.float svg{width:28px;height:28px}
+
+@media(max-width:920px){
+  .burger{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(246,249,247,.98);backdrop-filter:blur(18px);padding:16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 18px}
+  .what{grid-template-columns:1fr}
+  .why-in,.cgrid{grid-template-columns:1fr;gap:40px}
+  .why,.cta{padding:42px 28px}
+  .fgrid{grid-template-columns:1fr;gap:34px}
+  .section{padding:70px 0}
+  .csocial{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-in">
+    <div class="logo" onclick="go('home')">
+      <div class="logo-mark">A</div>
+      <div class="logo-txt">Apex<b>Soft</b></div>
+    </div>
+    <div class="nav-links" id="navlinks">
+      <a onclick="go('home')" data-pg="home" class="active">Ana səhifə</a>
+      <a onclick="go('about')" data-pg="about">Layihələr</a>
+      <a onclick="go('contact')" data-pg="contact">Əlaqə</a>
+      <a onclick="go('contact')" class="nav-cta">Bizimlə əlaqə</a>
+    </div>
+    <div class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="wrap hero-in">
+      <div class="soon"><span class="led"></span> Hazırlanır</div>
+      <div class="hero-big">TEZLİKLƏ</div>
+      <div class="hero-sub">ApexSoft — Proqram Həlləri</div>
+      <h1>Azərbaycan biznesi üçün proqram təminatı</h1>
+      <p class="lead">Biz işinizi asanlaşdıran müasir proqramlar yaradırıq. Layihələrimiz hələ hazırlanma mərhələsindədir — ilk məhsullarımıza son toxunuşları veririk. Bizi izləyin.</p>
+      <div class="hero-btns">
+        <button class="btn btn-green" onclick="go('contact')">Bizimlə əlaqə <span class="ar">→</span></button>
+        <button class="btn btn-light" onclick="go('about')">Layihələrimiz <span class="ar">↗</span></button>
+      </div>
+      <div class="hero-social">
+        <span class="lbl">Bizi izləyin:</span>
+        <a class="hs-btn" href="https://instagram.com/apexsoft.az" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#0f7d38" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#0f7d38" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#0f7d38"/></svg>
+          @apexsoft.az
+        </a>
+        <a class="hs-btn" href="https://tiktok.com/@apexsoft.az" target="_blank">
+          <svg viewBox="0 0 24 24" fill="#0f7d38"><path d="M16.5 3c.3 2.1 1.5 3.4 3.5 3.6v2.5c-1.2.1-2.3-.3-3.5-1v6.4c0 3.3-2.4 5.5-5.4 5.5-2.8 0-5.1-2.1-5.1-4.9 0-3 2.5-5 5.6-4.6v2.7c-.5-.2-1-.2-1.5-.1-1.1.2-1.9 1-1.8 2.2.1 1.2 1 1.9 2.1 1.9 1.2 0 2-.9 2-2.2V3h3.6z"/></svg>
+          @apexsoft.az
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="sh">
+        <span class="tag">Nə üzərində işləyirik</span>
+        <h2>Biznes üçün <span class="g">proqram həlləri</span></h2>
+        <p>ApexSoft müxtəlif sahələr üçün proqramlar hazırlayır. Hər biri diqqətlə işlənir və mərhələ-mərhələ təqdim olunacaq.</p>
+      </div>
+      <div class="what">
+        <div class="wc soon-tag">
+          <div class="ic">🛒</div>
+          <h3>Kassa & Anbar sistemi</h3>
+          <p>Marketlər və mağazalar üçün satış, anbar idarəsi və hesabatlar. Tam Azərbaycan dilində — son mərhələdə hazırlanır.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">📱</div>
+          <h3>Mobil tətbiqlər</h3>
+          <p>Biznesinizi telefondan idarə etmək üçün sadə və sürətli mobil həllər.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">📊</div>
+          <h3>İdarəetmə sistemləri</h3>
+          <p>İşçi, hesabat və proseslərin idarəsi üçün xüsusi proqramlar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="why">
+        <div class="why-in">
+          <div>
+            <h2>Niyə <span class="y">ApexSoft</span>?</h2>
+            <p>Proqramlarımız xaricdən tərcümə deyil — birbaşa burada, yerli biznesin real ehtiyaclarına görə hazırlanır. Hər söz, hər detal doğma dildə düşünülüb.</p>
+          </div>
+          <div class="wl">
+            <div class="li"><span class="ck">✓</span><div class="tx"><b>Tam Azərbaycan dili</b><span>Heç bir tərcümə qarışıqlığı olmadan</span></div></div>
+            <div class="li"><span class="ck">✓</span><div class="tx"><b>Yerli bazara uyğun</b><span>Manat, yerli format və iş axını</span></div></div>
+            <div class="li"><span class="ck">✓</span><div class="tx"><b>Sadə və rahat</b><span>Mürəkkəblik yox, aydın istifadə</span></div></div>
+            <div class="li"><span class="ck">✓</span><div class="tx"><b>Diqqətlə hazırlanır</b><span>Hər detala önəm verilir</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta"><div class="cta-in">
+        <h2>Yeniliklərdən <span class="g">xəbərdar olun</span></h2>
+        <p>Layihələrimiz hazır olduqca ilk olaraq elan edəcəyik. Bizi sosial şəbəkələrdə izləyin və ya birbaşa əlaqə saxlayın.</p>
+        <button class="btn btn-green" onclick="go('contact')">Bizimlə əlaqə <span class="ar">→</span></button>
+      </div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== ABOUT / LAYIHELER ===== -->
+<div class="page" id="page-about">
+  <section class="hero" style="padding:30px 0 50px">
+    <div class="hero-bg"></div>
+    <div class="wrap hero-in" style="padding-top:60px">
+      <div class="soon"><span class="led"></span> Layihələr</div>
+      <h1 style="font-size:clamp(36px,5.4vw,58px);margin-bottom:20px">Hazırladığımız <span style="color:var(--green-d)">istiqamətlər</span></h1>
+      <p class="lead" style="max-width:600px">ApexSoft daim yeni proqramlar üzərində işləyir. Aşağıdakı layihələr hazırlanma mərhələsindədir.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:30px">
+    <div class="wrap">
+      <div class="what">
+        <div class="wc soon-tag">
+          <div class="ic">🛒</div>
+          <h3>Kassa & Anbar</h3>
+          <p>Marketlər üçün satış, anbar, alış, müştəri borcu, çəki məhsulları və hesabatlar. İlk məhsulumuz — son mərhələdə.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">📱</div>
+          <h3>Mobil həllər</h3>
+          <p>İşçi davamiyyəti, anbar sayımı və biznes idarəsi üçün mobil tətbiqlər.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">📊</div>
+          <h3>İdarəetmə</h3>
+          <p>Hesabat, proses və komanda idarəsi üçün xüsusi sistemlər.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">🌐</div>
+          <h3>Veb həllər</h3>
+          <p>Onlayn idarəetmə panelləri və biznes üçün veb platformalar.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">🔗</div>
+          <h3>İnteqrasiyalar</h3>
+          <p>Mövcud sistemlərlə qoşulma və avtomatlaşdırma həlləri.</p>
+        </div>
+        <div class="wc soon-tag">
+          <div class="ic">✨</div>
+          <h3>Və davamı</h3>
+          <p>Yeni ideyalar üzərində işləməyə davam edirik. İzləyin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta"><div class="cta-in">
+        <h2>Bir ideyanız <span class="g">var?</span></h2>
+        <p>Biznesiniz üçün proqram düşünürsünüzsə, bizimlə əlaqə saxlayın — birlikdə nəzərdən keçirək.</p>
+        <button class="btn btn-green" onclick="go('contact')">Bizimlə əlaqə <span class="ar">→</span></button>
+      </div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="page" id="page-contact">
+  <section class="hero" style="padding:30px 0 40px">
+    <div class="hero-bg"></div>
+    <div class="wrap hero-in" style="padding-top:60px">
+      <div class="soon"><span class="led"></span> Əlaqə</div>
+      <h1 style="font-size:clamp(36px,5.4vw,56px);margin-bottom:20px">Gəlin <span style="color:var(--green-d)">danışaq</span></h1>
+      <p class="lead" style="max-width:540px">Sualınız var, yoxsa əməkdaşlıq düşünürsünüz? Bizə yazın və ya sosial şəbəkələrdə tapın — sevinərik.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:30px">
+    <div class="wrap">
+      <div class="cgrid">
+        <div class="cinfo">
+          <div class="ci"><div class="ic">✉️</div><div><b>E-poçt</b><a href="mailto:info@apexsoft.az">info@apexsoft.az</a></div></div>
+          <div class="ci"><div class="ic">🌐</div><div><b>Veb sayt</b><span>apexsoft.az</span></div></div>
+          <div class="ci"><div class="ic">💬</div><div><b>Sosial şəbəkələr</b><span>Ən sürətli əlaqə — birbaşa mesaj yazın</span></div></div>
+          <div class="csocial">
+            <a href="https://instagram.com/apexsoft.az" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#0f7d38" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#0f7d38" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#0f7d38"/></svg>
+              Instagram
+            </a>
+            <a href="https://tiktok.com/@apexsoft.az" target="_blank">
+              <svg viewBox="0 0 24 24" fill="#0f7d38"><path d="M16.5 3c.3 2.1 1.5 3.4 3.5 3.6v2.5c-1.2.1-2.3-.3-3.5-1v6.4c0 3.3-2.4 5.5-5.4 5.5-2.8 0-5.1-2.1-5.1-4.9 0-3 2.5-5 5.6-4.6v2.7c-.5-.2-1-.2-1.5-.1-1.1.2-1.9 1-1.8 2.2.1 1.2 1 1.9 2.1 1.9 1.2 0 2-.9 2-2.2V3h3.6z"/></svg>
+              TikTok
+            </a>
+          </div>
+        </div>
+        <div class="cform">
+          <h3>Bizə yazın</h3>
+          <p class="sub">Formu doldurun, ən qısa zamanda cavab verək.</p>
+          <div class="fg"><label>Adınız *</label><input id="f-name" type="text" placeholder="Adınız"></div>
+          <div class="fg"><label>E-poçt və ya Instagram</label><input id="f-phone" type="text" placeholder="Sizinlə necə əlaqə saxlayaq?"></div>
+          <div class="fg"><label>Mesajınız</label><textarea id="f-msg" placeholder="Nə barədə danışmaq istəyirsiniz?"></textarea></div>
+          <button class="btn btn-green" style="width:100%;justify-content:center" onclick="submitForm()">Göndər <span class="ar">→</span></button>
+          <p class="fnote" id="form-note">Müraciətiniz birbaşa bizə çatacaq.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo"><div class="logo-mark">A</div><div class="logo-txt">Apex<b>Soft</b></div></div>
+        <p class="fabout">Azərbaycan üçün müasir proqram həlləri. Biznesi asanlaşdıran ağıllı proqramlar yaradırıq.</p>
+        <div class="fsocial">
+          <a href="https://instagram.com/apexsoft.az" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#0f7d38" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#0f7d38" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#0f7d38"/></svg></a>
+          <a href="https://tiktok.com/@apexsoft.az" target="_blank" title="TikTok"><svg viewBox="0 0 24 24" fill="#0f7d38"><path d="M16.5 3c.3 2.1 1.5 3.4 3.5 3.6v2.5c-1.2.1-2.3-.3-3.5-1v6.4c0 3.3-2.4 5.5-5.4 5.5-2.8 0-5.1-2.1-5.1-4.9 0-3 2.5-5 5.6-4.6v2.7c-.5-.2-1-.2-1.5-.1-1.1.2-1.9 1-1.8 2.2.1 1.2 1 1.9 2.1 1.9 1.2 0 2-.9 2-2.2V3h3.6z"/></svg></a>
+          <a href="mailto:info@apexsoft.az" title="E-poçt"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="3" stroke="#0f7d38" stroke-width="2"/><path d="M3 6l9 7 9-7" stroke="#0f7d38" stroke-width="2"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><h4>Naviqasiya</h4><a onclick="go('home')">Ana səhifə</a><a onclick="go('about')">Layihələr</a><a onclick="go('contact')">Əlaqə</a></div>
+      <div class="fcol"><h4>Əlaqə</h4><a href="mailto:info@apexsoft.az">info@apexsoft.az</a><a href="https://instagram.com/apexsoft.az" target="_blank">Instagram</a><a href="https://tiktok.com/@apexsoft.az" target="_blank">TikTok</a></div>
+    </div>
+    <div class="fbot"><span>© 2026 ApexSoft. Bütün hüquqlar qorunur.</span><span>Azərbaycanda hazırlanıb 🇦🇿</span></div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING ===== -->
+<div class="float">
+  <a class="ig" href="https://instagram.com/apexsoft.az" target="_blank" title="Instagram" style="background:linear-gradient(135deg,#16a34a,#0f7d38)"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#fff" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="#fff" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="#fff"/></svg></a>
+</div>
+
+<script>
+function go(pg){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+pg).classList.add('active');
+  document.querySelectorAll('.nav-links a[data-pg]').forEach(a=>a.classList.toggle('active',a.getAttribute('data-pg')===pg));
+  document.getElementById('navlinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function submitForm(){
+  var n=document.getElementById('f-name').value.trim();
+  var note=document.getElementById('form-note');
+  if(!n){note.style.color='#c0392b';note.textContent='Zəhmət olmasa adınızı daxil edin.';return;}
+  note.style.color='#0f7d38';note.textContent='✓ Təşəkkürlər, '+n+'! Müraciətiniz qeydə alındı, ən qısa zamanda əlaqə saxlayacağıq.';
+  ['f-name','f-phone','f-msg'].forEach(id=>document.getElementById(id).value='');
+}
+</script>
+</body>
+</html>
