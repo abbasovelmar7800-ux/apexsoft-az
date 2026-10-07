@@ -121,6 +121,9 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 .fly-intro{font-size:clamp(30px,5.6vw,66px);font-weight:300}
 .fw{font-size:clamp(46px,10.5vw,150px);font-weight:800;opacity:0}
 .fw.g{color:var(--acc)}
+.fwp{font-size:clamp(34px,7vw,104px);color:var(--pon);background:var(--p);border-radius:.22em;
+  padding:.06em .38em .14em;text-shadow:none;box-shadow:0 18px 50px rgba(11,26,51,.18)}
+.fly.calm .fwp{font-size:clamp(26px,4.4vw,52px)}
 .fly-final{width:min(92vw,1000px);white-space:normal;text-align:center;font-size:clamp(36px,7.4vw,100px);font-weight:300;opacity:0}
 .nw{white-space:nowrap}
 .sbm{display:inline-block;font-weight:800;color:var(--pon);background:var(--p);border-radius:.18em;
