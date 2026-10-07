@@ -205,7 +205,8 @@
   }
 
   /* söz başlanğıcı, addım, uzunluq — söz sayına görə */
-  var W0=.1,WL=.22,WS=fWords.length>1?Math.min(.118,(.7-WL)/(fWords.length-1)):.1;
+  var W0=.1,WL=.22,WS=fWords.length>1?Math.min(.2,(.7-WL)/(fWords.length-1)):.1;
+  var FIN=Math.min(.82,W0+Math.max(fWords.length-1,0)*WS+WL*.8);  /* son yazının başlanğıcı */
   function domFx(){
     var vh=innerHeight;
     var r2=asm.getBoundingClientRect(),pr2=rawProg(r2);
@@ -226,7 +227,7 @@
         var b=t<.28?(1-t/.28)*6:t>.75?(t-.75)/.25*5:0;
         place(w.el,w.x*vw/100,w.y*vh/100,z,o,b);
       }
-      var tf=clamp((p-.82)/.15,0,1);
+      var tf=clamp((p-FIN)/.15,0,1);
       place(fFinal,0,0,lerp(-1800,0,eOut(tf)),sstep(0,.55,tf),(1-tf)*6);
     }
     /* loqo: bölmə görünməyə başlayanda yığılmağa başlayır */

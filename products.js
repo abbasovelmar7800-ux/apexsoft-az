@@ -121,33 +121,6 @@ window.APEX_PRODUCTS = [
       button: 'Sənədə əlavə et', listTitle: 'Son sənədlər',
       rows: [['Qaimə · 12 mal', 'göndərildi'], ['Sayım · Anbar', 'aktiv']]
     }
-  },
-
-  {
-    id: 'magaza',
-    name: 'Mağaza Proqramı',
-    status: 'soon',
-    icon: 'store',
-    lead: 'Marketlər üçün kassa, anbar, alış və hesabat — Windows proqramı.',
-    tags: ['Windows', 'Kassa', 'Anbar', '1C']
-  },
-
-  {
-    id: 'berberxana',
-    name: 'Bərbərxana Proqramı',
-    status: 'soon',
-    icon: 'scissors',
-    lead: 'Randevu, kassa, müştərilər və usta maaşı — sahibin telefonunda.',
-    tags: ['Android', 'Randevu', 'Kassa']
-  },
-
-  {
-    id: 'isci',
-    name: 'ApexSoft İşçi',
-    status: 'soon',
-    icon: 'face',
-    lead: 'Üz tanıma ilə işçi giriş-çıxışı və aylıq hesabat.',
-    tags: ['Android', 'Üz tanıma', 'Davamiyyət']
   }
 
 ];
