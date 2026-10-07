@@ -29,7 +29,7 @@
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   function pid(p,k){return String(p.id||'').replace(/[^\w-]/g,'')||('mehsul-'+k)}
   /* hər məhsula unikal id (səhifədəki digər id-lərlə də toqquşmasın) */
-  var usedIds={fly:1,asm:1,asmBox:1,ustunluk:1,elaqe:1,mehsullar:1,tezlikle:1,nav:1,intro:1,gl:1,scene3d:1,heroProd:1,navProd:1};
+  var usedIds={fly:1,asm:1,asmBox:1,ustunluk:1,elaqe:1,mehsullar:1,tezlikle:1,nav:1,intro:1,gl:1,scene3d:1,heroProds:1,navProd:1};
   function uid(p,k){var b=pid(p,k),u=b,n=2;while(usedIds[u])u=b+'-'+(n++);usedIds[u]=1;return u}
   LIVE.forEach(function(p,i){p._id=uid(p,i)});SOON.forEach(function(p,i){p._id=uid(p,'tez-'+i)});
   function rgb(h){var m=/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(h||''));if(!m)return null;var x=m[1];
@@ -128,10 +128,14 @@
     if(LIVE.length===1){nl.textContent=LIVE[0].name;nl.href='#'+LIVE[0]._id}
     else if(!LIVE.length&&SOON.length)nl.href='#tezlikle';
     else if(!PRODUCTS.length)nl.remove();
-    /* hero düyməsi — seçilmiş məhsul, öz rəngində */
-    var hb=document.getElementById('heroProd');
-    if(FEAT){hb.hidden=false;hb.href='#'+FEAT._id;hb.querySelector('span').textContent=FEAT.name;
-      hb.querySelector('i').innerHTML=iconHTML(FEAT);paint(hb,FEAT)}
+    /* hero: bütün aktiv məhsullar — hər biri öz rəngində, öz bölməsinə aparır */
+    var hp=document.getElementById('heroProds');
+    LIVE.forEach(function(p){
+      var a=el('a','hp');a.href='#'+p._id;paint(a,p);
+      var ic=el('i');ic.innerHTML=iconHTML(p);a.appendChild(ic);a.appendChild(el('span',null,p.name));
+      hp.appendChild(a);
+    });
+    if(LIVE.length)hp.hidden=false;
   })();
 
   /* ====== scroll girişləri + saylar ====== */
