@@ -9,9 +9,9 @@
      'new'  — öz bölməsi olur, üstündə "Yeni" nişanı
      'live' — öz bölməsi olur (nişansız)
      'soon' — "Tezliklə" kartı kimi kiçik göstərilir
-   featured: true — hero düyməsi, uçan sözlər və 3D noutbukun
-     ekranı bu məhsulu göstərir (yalnız biri; yoxdursa — ilk
-     'new'/'live' məhsul götürülür)
+   featured: true — 3D noutbukun ekranı bu məhsulu göstərir və o,
+     siyahıda birinci olur (yalnız biri; yoxdursa — ilk 'new'/'live')
+   Hero düymələri və uçan sözlər bütün məhsulları özü göstərir.
    icon: 'star' | 'store' | 'scissors' | 'bread' | 'chart' |
          'cart' | 'card' | 'phone' | 'box' | 'barcode' |
          'face' | 'clipboard'
@@ -61,12 +61,6 @@ window.APEX_PRODUCTS = [
       ['İdarə paneli', 'Hesabat və kampaniyalar · 1C']
     ],
     stats: [[2, 'mobil tətbiq'], [5, 'filial'], ['1C', 'inteqrasiya']],
-    /* uçan sözlər (featured məhsul üçün) */
-    words: {
-      intro: 'Müştərinin telefonunda —',
-      list: ['Bonus', 'Kartım', 'Kampaniyalar', 'Tarixçə', 'Filiallar', 'Bildirişlər'],
-      final: 'hamısı {name}-da.'
-    },
     /* telefon maketi */
     phone: {
       balanceLabel: 'Bonus balansı', balance: '12,40 ₼', note: 'Bu ay · 6 alış · +3,18 ₼',

@@ -177,23 +177,21 @@
      UÇAN SÖZLƏR — scroll ilə sözlər dərinlikdən kameraya uçur
      ============================================================ */
   var fly=document.getElementById('fly'),fIntro=null,fFinal=null,fWords=[];
-  var FW=FEAT&&FEAT.words&&FEAT.words.list&&FEAT.words.list.length?FEAT.words:null;
+  /* bütün məhsullar (əvvəl aktivlər, sonra "tezliklə") — hər ad öz brend rəngində uçur */
+  var FLY=LIVE.concat(SOON);
   var OFFS=[[-16,-15],[17,14],[-10,-12],[14,15],[-9,-14],[9,12],[-14,13],[12,-13]];
-  if(FW){
-    paint(fly,FEAT);fly.setAttribute('aria-label',FEAT.name);
+  if(FLY.length){
+    fly.setAttribute('aria-label','ApexSoft proqramları');
     var stage=fly.querySelector('.fly-stage');
-    fIntro=el('p','fly-intro',FW.intro||'');stage.appendChild(fIntro);
-    FW.list.forEach(function(w,i){
-      var sp=el('span','fw'+(i%2?' g':''),w),o=OFFS[i%OFFS.length];stage.appendChild(sp);
+    fIntro=el('p','fly-intro','Hazırladığımız proqramlar —');stage.appendChild(fIntro);
+    FLY.forEach(function(p,i){
+      var sp=el('span','fw fwp',p.name),o=OFFS[i%OFFS.length];paint(sp,p);stage.appendChild(sp);
       fWords.push({el:sp,x:o[0],y:o[1],on:true});
     });
     fFinal=el('p','fly-final');
-    var fin=String(FW.final||'{name}'),ki=fin.indexOf('{name}');
-    if(ki<0)fFinal.textContent=fin;
-    else{fFinal.appendChild(document.createTextNode(fin.slice(0,ki)));
-      var nw=el('span','nw');nw.appendChild(el('b','sbm',FEAT.name));nw.appendChild(document.createTextNode(fin.slice(ki+6)));
-      fFinal.appendChild(nw)}
-    stage.appendChild(fFinal);
+    fFinal.appendChild(document.createTextNode('hamısı '));
+    var nw=el('span','nw');nw.appendChild(el('b','sbm','ApexSoft'));nw.appendChild(document.createTextNode('-dan.'));
+    fFinal.appendChild(nw);stage.appendChild(fFinal);
     fly.style.height=(160+fWords.length*40)+'vh';
   }else{fly.remove();fly=null}
   var asm=document.getElementById('asm'),asmBox=document.getElementById('asmBox');
