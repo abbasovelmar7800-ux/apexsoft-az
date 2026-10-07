@@ -25,9 +25,9 @@
   --glass:linear-gradient(165deg,rgba(255,255,255,.8),rgba(246,250,255,.6));
   --glass-b:rgba(255,255,255,.85);
   --shadow:0 18px 44px rgba(20,60,140,.12);
-  /* Şok Bonus brendi */
-  --sb-y:#FFC72C;
-  --sb-k:#15161A;
+  /* məhsul rəngləri — hər məhsul products.js-dən öz rənglərini verir */
+  --p:#2563EB;--pk:#0B1A33;--pon:#FFFFFF;
+  --pA:rgba(37,99,235,.18);--pG:rgba(37,99,235,.22);--pS:rgba(37,99,235,.14);
   --gutter:clamp(22px,5vw,56px);
   --ease:cubic-bezier(.19,1,.22,1);
 }
@@ -37,6 +37,7 @@ body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--bg)
 body.lock{overflow:hidden}
 h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.025em;line-height:1.08}
 ::selection{background:rgba(37,99,235,.2)}
+[hidden]{display:none!important}
 a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12px}
 .acc{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
@@ -107,11 +108,10 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 .btn-main{color:#fff;background:var(--btn);
   box-shadow:0 14px 34px rgba(29,78,216,.3),inset 0 1px 0 rgba(255,255,255,.3)}
 .btn-main:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(29,78,216,.4),inset 0 1px 0 rgba(255,255,255,.3)}
-.btn-sb{color:var(--sb-k);background:var(--sb-y);box-shadow:0 12px 30px rgba(21,22,26,.14)}
-.btn-sb:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(21,22,26,.2)}
-.btn-sb i{width:20px;height:20px;border-radius:50%;background:var(--sb-k);position:relative;flex-shrink:0}
-.btn-sb i::after{content:'\2605';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:12px;color:var(--sb-y);font-style:normal;line-height:1}
+.btn-prod{color:var(--pon);background:var(--p);box-shadow:0 12px 30px rgba(11,26,51,.14)}
+.btn-prod:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(11,26,51,.2)}
+.btn-prod i{display:flex;width:20px;height:20px;flex-shrink:0;color:var(--pon)}
+.btn-prod i svg{width:100%;height:100%}
 
 /* 3D model buradan başlayır (model özü #gl qatında çəkilir) */
 .scene3d{position:relative;width:100%;height:clamp(320px,44vw,540px)}
@@ -130,7 +130,7 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 .fw.g{color:var(--acc)}
 .fly-final{width:min(92vw,1000px);white-space:normal;text-align:center;font-size:clamp(36px,7.4vw,100px);font-weight:300;opacity:0}
 .nw{white-space:nowrap}
-.sbm{display:inline-block;font-weight:800;color:var(--sb-k);background:var(--sb-y);border-radius:.18em;
+.sbm{display:inline-block;font-weight:800;color:var(--pon);background:var(--p);border-radius:.18em;
   padding:0 .2em .04em;text-shadow:none;box-shadow:0 10px 30px rgba(21,22,26,.12)}
 /* hərəkət azaldılıbsa — sözlər sadə siyahı kimi */
 .fly.calm{height:auto}
@@ -150,65 +150,83 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
   clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}
 .sec-head.in h2{clip-path:inset(0 0 -10% 0)}
 
-/* ============ ŞOK BONUS — öz brend rəngi (sarı-qara) ============ */
-.sb-panel{position:relative;display:grid;grid-template-columns:1fr;gap:44px;align-items:center;overflow:hidden;
-  border-radius:32px;padding:clamp(30px,5vw,64px);background:var(--sb-k);color:#fff;
+/* ============ MƏHSUL PANELLƏRİ — products.js-dən, hər biri öz brend rəngində ============ */
+.pp{position:relative;display:grid;grid-template-columns:1fr;gap:44px;align-items:center;overflow:hidden;
+  border-radius:32px;padding:clamp(30px,5vw,64px);background:var(--pk);color:#fff;
   box-shadow:0 40px 90px rgba(10,25,60,.28)}
-@media (min-width:880px){.sb-panel{grid-template-columns:1.1fr .9fr}}
-.sb-panel::before{content:'';position:absolute;right:-18%;top:-45%;width:80%;height:190%;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(255,199,44,.2),transparent 70%)}
-.sb-panel>*{position:relative}
-.sb-new{position:absolute;top:24px;right:24px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--sb-k);background:var(--sb-y);padding:7px 14px;border-radius:100px;z-index:2}
-.sb-brand{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:28px;
-  font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--sb-y)}
-.sb-ico{width:46px;height:46px;border-radius:13px;background:var(--sb-y);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 26px rgba(255,199,44,.25)}
-.sb-ico svg{width:32px;height:32px}
-.sb-brand em{font-style:normal;font-family:'Inter';font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+@media (min-width:880px){
+  .pp{grid-template-columns:1.1fr .9fr}
+  .pp-flip{grid-template-columns:.9fr 1.1fr}
+  .pp-flip .phone{order:-1}
+  .pp.pp-single{grid-template-columns:1fr}
+}
+.pp::before{content:'';position:absolute;right:-18%;top:-45%;width:80%;height:190%;pointer-events:none;
+  background:radial-gradient(closest-side,var(--pG),transparent 70%)}
+.pp-flip::before{right:auto;left:-18%}
+.pp>*{position:relative}
+.pp-badge{position:absolute;top:24px;right:24px;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--pon);background:var(--p);padding:7px 14px;border-radius:100px;z-index:2}
+.pp-brand{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:28px;
+  font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--p)}
+.pp-ico{width:46px;height:46px;border-radius:13px;background:var(--p);color:var(--pon);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px var(--pA)}
+.pp-ico svg{width:30px;height:30px}
+.pp-brand em{font-style:normal;font-family:'Inter';font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
   color:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:5px 11px}
-.sb-panel h2{font-size:clamp(32px,4.6vw,54px);font-weight:300;letter-spacing:-.035em;line-height:1.05;margin-bottom:16px}
-.sb-panel h2 b{font-weight:800;color:var(--sb-y)}
-.sb-lead{font-size:16px;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:28px;max-width:440px}
-.sb-parts{list-style:none;display:grid;gap:10px;margin-bottom:30px}
-.sb-parts li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-radius:14px;
-  border:1px solid rgba(255,199,44,.18);background:rgba(255,255,255,.04)}
-.sb-parts b{font-size:14.5px;color:var(--sb-y)}
-.sb-parts span{font-size:13px;color:rgba(255,255,255,.66);text-align:right}
-.sb-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
-.sb-stats b{display:block;font-family:'Montserrat';font-weight:300;font-size:clamp(30px,4vw,44px);color:var(--sb-y);
+.pp h2{font-size:clamp(32px,4.6vw,54px);font-weight:300;letter-spacing:-.035em;line-height:1.05;margin-bottom:16px}
+.pp h2 b{font-weight:800;color:var(--p)}
+.pp-lead{font-size:16px;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:28px;max-width:440px}
+.pp-parts{list-style:none;display:grid;gap:10px;margin-bottom:30px}
+.pp-parts li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-radius:14px;
+  border:1px solid var(--pA);background:rgba(255,255,255,.04)}
+.pp-parts b{font-size:14.5px;color:var(--p)}
+.pp-parts span{font-size:13px;color:rgba(255,255,255,.66);text-align:right}
+.pp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px}
+.pp-stats b{display:block;font-family:'Montserrat';font-weight:300;font-size:clamp(30px,4vw,44px);color:var(--p);
   line-height:1;letter-spacing:-.03em;margin-bottom:6px}
-.sb-stats span{font-size:12px;color:rgba(255,255,255,.62);font-weight:600}
+.pp-stats span{font-size:12px;color:rgba(255,255,255,.62);font-weight:600}
+.pp-tags{margin-top:24px}
+.pp .pp-tags span{color:var(--p);border-color:var(--pA);background:rgba(255,255,255,.05)}
+/* açıq panel (theme:'light') */
+.pp-light{background:var(--glass);border:1px solid var(--glass-b);color:var(--text);box-shadow:var(--shadow);
+  -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
+.pp-light .pp-brand,.pp-light h2 b,.pp-light .pp-parts b,.pp-light .pp-stats b,.pp-light .pp-tags span{color:var(--pk)}
+.pp-light .pp-lead,.pp-light .pp-parts span,.pp-light .pp-stats span,.pp-light .pp-brand em{color:var(--muted)}
+.pp-light .pp-brand em{border-color:rgba(11,26,51,.15)}
+.pp-light .pp-parts li{background:rgba(255,255,255,.6)}
+.pp-light .pp-stats{border-top-color:rgba(11,26,51,.1)}
 
-/* telefon maketi — Şok Bonus tətbiqinin öz görünüşü */
+/* telefon maketi — məhsulun öz rəngləri ilə */
 .phone{display:flex;justify-content:center;perspective:1100px}
 .ph{position:relative;width:240px;height:486px;border-radius:38px;border:9px solid #0A0B0D;overflow:hidden;
   background:#F4F5F7;color:#17171B;font-family:'Inter',sans-serif;display:flex;flex-direction:column;
-  box-shadow:0 0 0 1px rgba(255,199,44,.35),0 40px 80px rgba(0,0,0,.5),0 0 70px rgba(255,199,44,.16);
+  box-shadow:0 0 0 1px var(--pA),0 40px 80px rgba(0,0,0,.45),0 0 70px var(--pS);
   transform:rotateY(-14deg) rotateX(5deg);transition:transform .7s var(--ease)}
-.sb-panel:hover .ph{transform:rotateY(-4deg) rotateX(2deg)}
-.ph-top{display:flex;align-items:center;justify-content:space-between;background:var(--sb-k);padding:26px 16px 14px}
-.ph-logo{display:flex;align-items:center;gap:8px;color:var(--sb-y);font-weight:800;font-size:15px;letter-spacing:-.01em}
-.ph-logo i{width:18px;height:18px;border-radius:50%;background:var(--sb-y);position:relative}
+.pp-flip .ph{transform:rotateY(14deg) rotateX(5deg)}
+.pp:hover .ph{transform:rotateY(-4deg) rotateX(2deg)}
+.pp-flip:hover .ph{transform:rotateY(4deg) rotateX(2deg)}
+.ph-top{display:flex;align-items:center;justify-content:space-between;background:var(--pk);padding:26px 16px 14px}
+.ph-logo{display:flex;align-items:center;gap:8px;color:var(--p);font-weight:800;font-size:15px;letter-spacing:-.01em}
+.ph-logo i{width:18px;height:18px;border-radius:50%;background:var(--p);position:relative}
 .ph-logo i::after{content:'\2605';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:11px;color:var(--sb-k);font-style:normal;line-height:1}
-.ph-bell{width:14px;height:14px;border:2px solid rgba(255,199,44,.85);border-radius:7px 7px 3px 3px}
+  font-size:11px;color:var(--pon);font-style:normal;line-height:1}
+.ph-bell{width:14px;height:14px;border:2px solid var(--p);border-radius:7px 7px 3px 3px;opacity:.85}
 .ph-body{flex:1;padding:14px 12px 0;display:flex;flex-direction:column;gap:10px;overflow:hidden}
-.ph-bal{background:var(--sb-k);color:#fff;border-radius:16px;padding:14px 14px 13px}
+.ph-bal{background:var(--pk);color:#fff;border-radius:16px;padding:14px 14px 13px}
 .ph-bal small{display:block;font-size:10px;color:rgba(255,255,255,.65);font-weight:600}
-.ph-bal b{display:block;font-size:27px;font-weight:800;letter-spacing:-.02em;color:var(--sb-y);margin:2px 0 3px}
+.ph-bal b{display:block;font-size:27px;font-weight:800;letter-spacing:-.02em;color:var(--p);margin:2px 0 3px}
 .ph-bal em{font-style:normal;font-size:9.5px;color:rgba(255,255,255,.6)}
 .ph-card{background:#fff;border-radius:14px;padding:10px 12px;border:1px solid #E6E7EB;text-align:center}
 .ph-card small{display:block;text-align:left;font-size:9.5px;font-weight:700;color:#74747E;margin-bottom:6px}
 .ph-bar{height:34px;background:repeating-linear-gradient(90deg,#17171B 0 2px,transparent 2px 3px,#17171B 3px 4px,transparent 4px 7px,#17171B 7px 10px,transparent 10px 11px,#17171B 11px 12px,transparent 12px 15px)}
 .ph-card span{display:block;font-size:9px;letter-spacing:.12em;color:#17171B;margin-top:4px;font-weight:600}
-.ph-btn{background:var(--sb-y);color:var(--sb-k);font-weight:800;font-size:11px;text-align:center;border-radius:11px;padding:9px}
+.ph-btn{background:var(--p);color:var(--pon);font-weight:800;font-size:11px;text-align:center;border-radius:11px;padding:9px}
 .ph-h{font-size:10.5px;font-weight:800;margin-top:2px}
 .ph-row{display:flex;justify-content:space-between;font-size:10px;padding:7px 10px;background:#fff;border-radius:10px}
 .ph-row span{color:#74747E}.ph-row b{color:#1E9E62}.ph-row b.neg{color:#17171B}
 .ph-nav{display:flex;justify-content:space-around;padding:10px 14px 14px;background:#fff;border-top:1px solid #E6E7EB}
 .ph-nav i{width:16px;height:16px;border-radius:5px;background:#E6E7EB}
-.ph-nav i.on{background:var(--sb-k)}
+.ph-nav i.on{background:var(--pk)}
 
 /* ============ ÜSTÜNLÜKLƏR ============ */
 .feats{display:grid;grid-template-columns:1fr;gap:16px}
@@ -230,7 +248,10 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 .card{position:relative;max-width:1080px;margin:0 auto;border-radius:24px;padding:30px 28px;overflow:hidden;
   background:var(--glass);border:1px solid var(--glass-b);box-shadow:var(--shadow);
   -webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%)}
-.cicon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+.soon-sec{padding-top:0}
+.soon-list{display:grid;gap:16px;max-width:1080px;margin:0 auto}
+.soon-list .card{max-width:none;margin:0}
+.cicon{color:var(--acc2);width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
   margin-bottom:18px;border:1px solid rgba(37,99,235,.2);
   background:linear-gradient(150deg,rgba(59,130,246,.18),rgba(59,130,246,.04));
   box-shadow:0 10px 24px rgba(20,60,140,.1),inset 0 1px 0 rgba(255,255,255,.8)}
@@ -301,8 +322,8 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 
 @media (max-width:760px){
   .feat,.card,.link{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-  .sb-parts li{flex-direction:column;gap:2px}
-  .sb-parts span{text-align:left}
+  .pp-parts li{flex-direction:column;gap:2px}
+  .pp-parts span{text-align:left}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -353,7 +374,7 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
       <span>Apex<b class="acc">Soft</b></span>
     </a>
     <div class="nav-links">
-      <a class="nl" href="#sokbonus">Şok Bonus</a>
+      <a class="nl" id="navProd" href="#mehsullar">Məhsullar</a>
       <a class="nl" href="#ustunluk">Üstünlüklər</a>
       <a class="nl" href="#elaqe">Əlaqə</a>
       <a class="ncta" href="mailto:info@apexsoft.az">Bizimlə əlaqə</a>
@@ -375,74 +396,19 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
       <p class="lead">Azərbaycan biznesləri üçün müasir proqram həlləri.</p>
       <div class="cta-row">
         <a class="btn btn-main" href="mailto:info@apexsoft.az">Bizimlə əlaqə</a>
-        <a class="btn btn-sb" href="#sokbonus"><i></i>Şok Bonus</a>
+        <a class="btn btn-prod" id="heroProd" href="#mehsullar" hidden><i></i><span></span></a>
       </div>
     </div>
     <div class="scene3d" id="scene3d" aria-hidden="true"></div>
   </section>
 
-  <!-- ============ UÇAN SÖZLƏR ============ -->
-  <section class="fly" id="fly" aria-label="Şok Bonus tətbiqinin imkanları">
-    <div class="fly-stage">
-      <p class="fly-intro">Müştərinin telefonunda —</p>
-      <span class="fw" data-x="-16" data-y="-15">Bonus</span>
-      <span class="fw g" data-x="17" data-y="14">Kartım</span>
-      <span class="fw" data-x="-10" data-y="-12">Kampaniyalar</span>
-      <span class="fw g" data-x="14" data-y="15">Tarixçə</span>
-      <span class="fw" data-x="-9" data-y="-14">Filiallar</span>
-      <span class="fw g" data-x="9" data-y="12">Bildirişlər</span>
-      <p class="fly-final">hamısı <span class="nw"><b class="sbm">Şok Bonus</b>-da.</span></p>
-    </div>
+  <!-- ============ UÇAN SÖZLƏR (seçilmiş məhsul — products.js) ============ -->
+  <section class="fly" id="fly">
+    <div class="fly-stage"></div>
   </section>
 
-  <!-- ============ ŞOK BONUS ============ -->
-  <section class="shell sec" id="sokbonus">
-    <div class="sb-panel rv">
-      <span class="sb-new">Yeni</span>
-      <div>
-        <div class="sb-brand">
-          <span class="sb-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6" fill="#15161A"/><path d="M12 6.9l1.36 3.6 3.84.17-3 2.4 1.03 3.7L12 14.66 8.77 16.77l1.03-3.7-3-2.4 3.84-.17z" fill="#FFC72C"/></svg></span>
-          Şok Bonus
-          <em>ApexSoft tərəfindən</em>
-        </div>
-        <h2>Şok Market üçün<br><b>bonus sistemi.</b></h2>
-        <p class="sb-lead">Kartı oxut, bonus qazan, balansı telefondan izlə.</p>
-        <ul class="sb-parts">
-          <li><b>Şok Bonus</b><span>Müştəri tətbiqi</span></li>
-          <li><b>ŞOK Nəzarət</b><span>Filial müdiri üçün</span></li>
-          <li><b>İdarə paneli</b><span>Hesabat və kampaniyalar · 1C</span></li>
-        </ul>
-        <div class="sb-stats">
-          <div class="rv"><b data-count="2">0</b><span>mobil tətbiq</span></div>
-          <div class="rv rv-d1"><b data-count="5">0</b><span>filial</span></div>
-          <div class="rv rv-d2"><b>1C</b><span>inteqrasiya</span></div>
-        </div>
-      </div>
-      <div class="phone" aria-hidden="true">
-        <div class="ph">
-          <div class="ph-top"><span class="ph-logo"><i></i>Şok Bonus</span><span class="ph-bell"></span></div>
-          <div class="ph-body">
-            <div class="ph-bal">
-              <small>Bonus balansı</small>
-              <b>12,40 ₼</b>
-              <em>Bu ay · 6 alış · +3,18 ₼</em>
-            </div>
-            <div class="ph-card">
-              <small>Bonus kartım</small>
-              <div class="ph-bar"></div>
-              <span>2 000 000 418 527</span>
-            </div>
-            <div class="ph-btn">Tam ekranda göstər</div>
-            <div class="ph-h">Son əməliyyatlar</div>
-            <div class="ph-row"><span>Alış · Filial 2</span><b>+0,42 ₼</b></div>
-            <div class="ph-row"><span>Alış · Filial 1</span><b>+1,16 ₼</b></div>
-            <div class="ph-row"><span>Bonusla ödəniş</span><b class="neg">−5,00 ₼</b></div>
-          </div>
-          <div class="ph-nav"><i class="on"></i><i></i><i></i><i></i><i></i></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ============ MƏHSULLAR — products.js siyahısından qurulur ============ -->
+  <div id="mehsullar"></div>
 
   <!-- ============ ÜSTÜNLÜKLƏR ============ -->
   <section class="shell sec" id="ustunluk">
@@ -482,23 +448,8 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
     </div>
   </section>
 
-  <!-- ============ MAĞAZA PROQRAMI ============ -->
-  <section class="shell sec" id="magaza" style="padding-top:0">
-    <div class="card card-row rv">
-      <div class="cicon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 9l1.2-4.5A1.5 1.5 0 0 1 5.65 3h12.7a1.5 1.5 0 0 1 1.45 1.5L21 9"/>
-          <path d="M3 9h18v1.5a2.6 2.6 0 0 1-5.2 0A2.6 2.6 0 0 1 12 10.5a2.6 2.6 0 0 1-5.8 0A2.6 2.6 0 0 1 3 10.5V9z"/>
-          <path d="M5 13.5V21h14v-7.5"/><path d="M9.5 21v-5h5v5"/>
-        </svg>
-      </div>
-      <div>
-        <h3>Mağaza Proqramı <span class="soon">Tezliklə</span></h3>
-        <p>Marketlər üçün kassa, anbar və hesabat — bir sistemdə.</p>
-      </div>
-      <div class="tags"><span>Kassa</span><span>Anbar</span><span>Hesabat</span><span>Terminal</span></div>
-    </div>
-  </section>
+  <!-- ============ TEZLİKLƏ — products.js-dəki status:'soon' məhsullar ============ -->
+  <div id="tezlikle"></div>
 
   <!-- ============ LOQO — zərrəciklərdən ============ -->
   <section class="asm" id="asm" aria-label="ApexSoft">
@@ -560,6 +511,8 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
   </div>
 </footer>
 
+<noscript><style>.rv{opacity:1;transform:none;filter:none}.sec-head h2{clip-path:none}.intro{display:none}body.lock{overflow:auto}</style></noscript>
+<script src="products.js"></script>
 <script>
 (function(){
   var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -578,6 +531,120 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
     setTimeout(function(){intro.classList.add('done');boot();
       setTimeout(function(){intro.remove()},1100)},1500);
   }
+
+  /* ============================================================
+     MƏHSULLAR — products.js siyahısından qurulur.
+     Yeni proqram = products.js-ə bir element; burada heç nə dəyişmir.
+     ============================================================ */
+  var PRODUCTS=(window.APEX_PRODUCTS||[]).filter(function(p){return p&&p.name});
+  var LIVE=PRODUCTS.filter(function(p){return p.status!=='soon'});
+  var SOON=PRODUCTS.filter(function(p){return p.status==='soon'});
+  var FEAT=LIVE.filter(function(p){return p.featured})[0]||LIVE[0]||null;
+  if(FEAT)LIVE=[FEAT].concat(LIVE.filter(function(p){return p!==FEAT}));
+
+  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+  function pid(p,k){return String(p.id||'').replace(/[^\w-]/g,'')||('mehsul-'+k)}
+  /* hər məhsula unikal id (səhifədəki digər id-lərlə də toqquşmasın) */
+  var usedIds={fly:1,asm:1,asmBox:1,ustunluk:1,elaqe:1,mehsullar:1,tezlikle:1,nav:1,intro:1,gl:1,scene3d:1,heroProd:1,navProd:1};
+  function uid(p,k){var b=pid(p,k),u=b,n=2;while(usedIds[u])u=b+'-'+(n++);usedIds[u]=1;return u}
+  LIVE.forEach(function(p,i){p._id=uid(p,i)});SOON.forEach(function(p,i){p._id=uid(p,'tez-'+i)});
+  function rgb(h){var m=/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(h||''));if(!m)return null;var x=m[1];
+    if(x.length===3)x=x[0]+x[0]+x[1]+x[1]+x[2]+x[2];return [parseInt(x.slice(0,2),16),parseInt(x.slice(2,4),16),parseInt(x.slice(4,6),16)]}
+  function rgba(h,a){var c=rgb(h);return c?'rgba('+c[0]+','+c[1]+','+c[2]+','+a+')':null}
+  /* məhsulun brend rənglərini elementə CSS dəyişənləri kimi ver */
+  function paint(node,p){var c=(p&&p.colors)||{};
+    if(rgb(c.primary)){node.style.setProperty('--p',c.primary);node.style.setProperty('--pA',rgba(c.primary,.18));
+      node.style.setProperty('--pG',rgba(c.primary,.22));node.style.setProperty('--pS',rgba(c.primary,.14))}
+    if(rgb(c.dark))node.style.setProperty('--pk',c.dark);
+    if(rgb(c.onPrimary))node.style.setProperty('--pon',c.onPrimary)}
+  var LINE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+  var ICONS={
+    star:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.6" fill="currentColor"/><path d="M12 6.9l1.36 3.6 3.84.17-3 2.4 1.03 3.7L12 14.66 8.77 16.77l1.03-3.7-3-2.4 3.84-.17z" style="fill:var(--p)"/></svg>',
+    store:LINE+'<path d="M3 9l1.2-4.5A1.5 1.5 0 0 1 5.65 3h12.7a1.5 1.5 0 0 1 1.45 1.5L21 9"/><path d="M3 9h18v1.5a2.6 2.6 0 0 1-5.2 0A2.6 2.6 0 0 1 12 10.5a2.6 2.6 0 0 1-5.8 0A2.6 2.6 0 0 1 3 10.5V9z"/><path d="M5 13.5V21h14v-7.5"/><path d="M9.5 21v-5h5v5"/></svg>',
+    scissors:LINE+'<circle cx="6.5" cy="6.5" r="2.6"/><circle cx="6.5" cy="17.5" r="2.6"/><path d="M8.7 8.3 20 19M8.7 15.7 20 5M13.2 12.9l1.6 1.5"/></svg>',
+    bread:LINE+'<path d="M3.5 13c0-4 3.8-7 8.5-7s8.5 3 8.5 7c0 2.4-1.9 4-4.2 4H7.7C5.4 17 3.5 15.4 3.5 13z"/><path d="M8 10.6c.5-.9 1.3-1.5 2.3-1.9M7.5 17v3M12 17v3M16.5 17v3"/></svg>',
+    chart:LINE+'<path d="M4 20V11M10 20V5M16 20v-7M21 20H3"/></svg>',
+    cart:LINE+'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>',
+    card:LINE+'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg>',
+    phone:LINE+'<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>'
+  };
+  function iconHTML(p){return ICONS[p.icon]||ICONS.star}
+
+  function phoneMock(p){
+    var f=p.phone||{},wrap=el('div','phone'),ph=el('div','ph');wrap.setAttribute('aria-hidden','true');
+    var top=el('div','ph-top'),logo=el('span','ph-logo');
+    logo.appendChild(el('i'));logo.appendChild(document.createTextNode(f.title||p.name));
+    top.appendChild(logo);top.appendChild(el('span','ph-bell'));ph.appendChild(top);
+    var bd=el('div','ph-body');
+    if(f.balance!=null){var bal=el('div','ph-bal');bal.appendChild(el('small',null,f.balanceLabel||''));
+      bal.appendChild(el('b',null,f.balance));bal.appendChild(el('em',null,f.note||''));bd.appendChild(bal)}
+    if(f.cardNumber){var cd=el('div','ph-card');cd.appendChild(el('small',null,f.cardLabel||''));
+      cd.appendChild(el('div','ph-bar'));cd.appendChild(el('span',null,f.cardNumber));bd.appendChild(cd)}
+    if(f.button)bd.appendChild(el('div','ph-btn',f.button));
+    if(f.rows&&f.rows.length){bd.appendChild(el('div','ph-h',f.listTitle||''));
+      f.rows.forEach(function(r){var row=el('div','ph-row'),v=String(r[1]==null?'':r[1]);
+        row.appendChild(el('span',null,r[0]));row.appendChild(el('b',/^[\u2212-]/.test(v)?'neg':null,v));bd.appendChild(row)})}
+    ph.appendChild(bd);
+    var nv=el('div','ph-nav');for(var k=0;k<5;k++)nv.appendChild(el('i',k?null:'on'));ph.appendChild(nv);
+    wrap.appendChild(ph);return wrap;
+  }
+
+  function productPanel(p,i){
+    var sec=el('section','shell sec pp-sec');sec.id=p._id;
+    var mock=!!p.phone;
+    var pan=el('div','pp rv'+(p.theme==='light'?' pp-light':'')+(mock?(i%2?' pp-flip':''):' pp-single'));
+    paint(pan,p);
+    if(p.status==='new')pan.appendChild(el('span','pp-badge','Yeni'));
+    var main=el('div','pp-main');
+    var brand=el('div','pp-brand'),ico=el('span','pp-ico');ico.innerHTML=iconHTML(p);
+    brand.appendChild(ico);brand.appendChild(el('span',null,p.name));brand.appendChild(el('em',null,'ApexSoft tərəfindən'));
+    main.appendChild(brand);
+    var tl=[].concat(p.title||[]);
+    if(tl.length){var h=el('h2');h.appendChild(document.createTextNode(tl[0]));
+      if(tl[1]){h.appendChild(el('br'));h.appendChild(el('b',null,tl[1]))}main.appendChild(h)}
+    if(p.lead)main.appendChild(el('p','pp-lead',p.lead));
+    if(p.parts&&p.parts.length){var ul=el('ul','pp-parts');
+      p.parts.forEach(function(x){var li=el('li');li.appendChild(el('b',null,x[0]));if(x[1])li.appendChild(el('span',null,x[1]));ul.appendChild(li)});
+      main.appendChild(ul)}
+    if(p.stats&&p.stats.length){var sg=el('div','pp-stats');
+      p.stats.forEach(function(x,k){var d=el('div','rv'+(k?' rv-d'+Math.min(k,3):'')),b=el('b');
+        var m=/^(\d+)(%?)$/.exec(String(x[0]));
+        if(m){b.dataset.count=m[1];if(m[2])b.dataset.suffix=m[2];b.textContent='0'}else b.textContent=x[0];
+        d.appendChild(b);d.appendChild(el('span',null,x[1]||''));sg.appendChild(d)});
+      main.appendChild(sg)}
+    if(p.tags&&p.tags.length){var tg=el('div','tags pp-tags');p.tags.forEach(function(t){tg.appendChild(el('span',null,t))});main.appendChild(tg)}
+    pan.appendChild(main);
+    if(mock)pan.appendChild(phoneMock(p));
+    sec.appendChild(pan);return sec;
+  }
+
+  function soonCard(p,i){
+    var c=el('div','card card-row rv'+(i?' rv-d'+Math.min(i,3):''));c.id=p._id;
+    var ic=el('div','cicon');ic.innerHTML=iconHTML(p);c.appendChild(ic);
+    var tx=el('div'),h=el('h3');h.appendChild(document.createTextNode(p.name+' '));h.appendChild(el('span','soon','Tezliklə'));
+    tx.appendChild(h);if(p.lead)tx.appendChild(el('p',null,p.lead));c.appendChild(tx);
+    if(p.tags&&p.tags.length){var tg=el('div','tags');p.tags.forEach(function(t){tg.appendChild(el('span',null,t))});c.appendChild(tg)}
+    return c;
+  }
+
+  (function renderProducts(){
+    var box=document.getElementById('mehsullar');
+    LIVE.forEach(function(p,i){box.appendChild(productPanel(p,i))});
+    if(SOON.length){
+      var sec=el('section','shell sec soon-sec'),list=el('div','soon-list');
+      SOON.forEach(function(p,i){list.appendChild(soonCard(p,i))});
+      sec.appendChild(list);document.getElementById('tezlikle').appendChild(sec);
+    }
+    /* nav: bir məhsul varsa onun adı, çoxdursa "Məhsullar" */
+    var nl=document.getElementById('navProd');
+    if(LIVE.length===1){nl.textContent=LIVE[0].name;nl.href='#'+LIVE[0]._id}
+    else if(!LIVE.length&&SOON.length)nl.href='#tezlikle';
+    else if(!PRODUCTS.length)nl.remove();
+    /* hero düyməsi — seçilmiş məhsul, öz rəngində */
+    var hb=document.getElementById('heroProd');
+    if(FEAT){hb.hidden=false;hb.href='#'+FEAT._id;hb.querySelector('span').textContent=FEAT.name;
+      hb.querySelector('i').innerHTML=iconHTML(FEAT);paint(hb,FEAT)}
+  })();
 
   /* ====== scroll girişləri + saylar ====== */
   function countUp(el){
@@ -617,14 +684,29 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
   /* ============================================================
      UÇAN SÖZLƏR — scroll ilə sözlər dərinlikdən kameraya uçur
      ============================================================ */
-  var fly=document.getElementById('fly');
-  var fIntro=fly.querySelector('.fly-intro'),fFinal=fly.querySelector('.fly-final');
-  var fWords=[].slice.call(fly.querySelectorAll('.fw')).map(function(el){
-    return {el:el,x:+el.dataset.x,y:+el.dataset.y,on:true};
-  });
+  var fly=document.getElementById('fly'),fIntro=null,fFinal=null,fWords=[];
+  var FW=FEAT&&FEAT.words&&FEAT.words.list&&FEAT.words.list.length?FEAT.words:null;
+  var OFFS=[[-16,-15],[17,14],[-10,-12],[14,15],[-9,-14],[9,12],[-14,13],[12,-13]];
+  if(FW){
+    paint(fly,FEAT);fly.setAttribute('aria-label',FEAT.name);
+    var stage=fly.querySelector('.fly-stage');
+    fIntro=el('p','fly-intro',FW.intro||'');stage.appendChild(fIntro);
+    FW.list.forEach(function(w,i){
+      var sp=el('span','fw'+(i%2?' g':''),w),o=OFFS[i%OFFS.length];stage.appendChild(sp);
+      fWords.push({el:sp,x:o[0],y:o[1],on:true});
+    });
+    fFinal=el('p','fly-final');
+    var fin=String(FW.final||'{name}'),ki=fin.indexOf('{name}');
+    if(ki<0)fFinal.textContent=fin;
+    else{fFinal.appendChild(document.createTextNode(fin.slice(0,ki)));
+      var nw=el('span','nw');nw.appendChild(el('b','sbm',FEAT.name));nw.appendChild(document.createTextNode(fin.slice(ki+6)));
+      fFinal.appendChild(nw)}
+    stage.appendChild(fFinal);
+    fly.style.height=(160+fWords.length*40)+'vh';
+  }else{fly.remove();fly=null}
   var asm=document.getElementById('asm'),asmBox=document.getElementById('asmBox');
   var asmP=calm?1:0,asmVis=0;
-  if(calm){fly.classList.add('calm');asm.classList.add('calm')}
+  if(calm){if(fly)fly.classList.add('calm');asm.classList.add('calm')}
 
   function place(el,x,y,z,o,b){
     el.style.transform='translate(-50%,-50%) translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,'+z.toFixed(1)+'px)';
@@ -632,15 +714,16 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
     el.style.filter=b>.1?'blur('+b.toFixed(1)+'px)':'none';
   }
 
-  var W0=.1,WS=.118,WL=.22;  /* söz başlanğıcı, addım, uzunluq */
+  /* söz başlanğıcı, addım, uzunluq — söz sayına görə */
+  var W0=.1,WL=.22,WS=fWords.length>1?Math.min(.118,(.7-WL)/(fWords.length-1)):.1;
   function domFx(){
     var vh=innerHeight;
     var r2=asm.getBoundingClientRect(),pr2=rawProg(r2);
     asmVis=clamp(1-Math.abs((r2.top+r2.height/2-vh/2)/(r2.height/2+vh*.3)),0,1);
     if(calm)return;
     var vw=innerWidth;
-    var r=fly.getBoundingClientRect();
-    if(r.bottom>-vh*.2&&r.top<vh*1.2){
+    var r=fly?fly.getBoundingClientRect():null;
+    if(r&&r.bottom>-vh*.2&&r.top<vh*1.2){
       var p=clamp(rawProg(r),0,1);
       var ti=clamp(p/.13,0,1);
       place(fIntro,0,0,ti*ti*700,1-sstep(.2,.8,ti),ti*5);
@@ -886,54 +969,60 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
         this.lineTo(x,y+r[0]);this.quadraticCurveTo(x,y,x+r[0],y);return this};
     }
 
-    /* ekran teksturası: Şok Bonus — İdarə Paneli (öz rəngi: sarı-qara) */
+    /* ekran teksturası: seçilmiş məhsulun idarə paneli, öz brend rəngində */
     function screenTexture(){
+      var P=FEAT||{name:'ApexSoft'},col=P.colors||{},SC=P.screen||{};
+      var Y=rgb(col.primary)?col.primary:'#3B82F6',YK=rgb(col.dark)?col.dark:'#15161A',YO=rgb(col.onPrimary)?col.onPrimary:'#15161A';
+      var menu=(SC.menu||(P.parts||[]).map(function(x){return x[0]}).concat(['Hesabatlar','Ayarlar'])).slice(0,6);
+      var cards=(SC.cards||(P.stats||[]).map(function(x){return [String(x[1]).toUpperCase(),String(x[0])]})).slice(0,3);
+      var rows=(SC.rows||[]).slice(0,3);
       var c=document.createElement('canvas');c.width=1024;c.height=640;
       var x=c.getContext('2d');
-      var Y='#FFC72C',MUT='rgba(235,232,224,.6)',MUT2='rgba(235,232,224,.4)',TX='#F4F3EF';
+      var MUT='rgba(235,232,224,.6)',MUT2='rgba(235,232,224,.4)',TX='#F4F3EF';
       x.fillStyle='#0E0F12';x.fillRect(0,0,1024,640);
-      x.fillStyle='#15161A';x.fillRect(0,0,1024,54);
-      x.strokeStyle='rgba(255,199,44,.2)';x.beginPath();x.moveTo(0,54.5);x.lineTo(1024,54.5);x.stroke();
-      ['#FF5F57','#FEBC2E','#28C840'].forEach(function(col,i){
-        x.fillStyle=col;x.beginPath();x.arc(30+i*26,27,7,0,7);x.fill()});
-      x.fillStyle=MUT;x.font='600 19px Inter,Arial';x.fillText('Şok Bonus — İdarə Paneli',120,34);
+      x.fillStyle=YK;x.fillRect(0,0,1024,54);
+      x.strokeStyle=rgba(Y,.2);x.beginPath();x.moveTo(0,54.5);x.lineTo(1024,54.5);x.stroke();
+      ['#FF5F57','#FEBC2E','#28C840'].forEach(function(cc,i){
+        x.fillStyle=cc;x.beginPath();x.arc(30+i*26,27,7,0,7);x.fill()});
+      x.fillStyle=MUT;x.font='600 19px Inter,Arial';x.fillText(P.name+' — '+(SC.title||'İdarə Paneli'),120,34);
       x.fillStyle='#121317';x.fillRect(0,55,226,585);
-      x.strokeStyle='rgba(255,199,44,.12)';x.beginPath();x.moveTo(226.5,55);x.lineTo(226.5,640);x.stroke();
+      x.strokeStyle=rgba(Y,.12);x.beginPath();x.moveTo(226.5,55);x.lineTo(226.5,640);x.stroke();
       x.fillStyle=Y;x.beginPath();x.arc(40,98,16,0,7);x.fill();
-      x.fillStyle='#15161A';x.font='900 18px Arial';x.textAlign='center';x.fillText('★',40,104);x.textAlign='left';
-      x.fillStyle=Y;x.font='800 21px Inter,Arial';x.fillText('Şok Bonus',66,95);
+      x.fillStyle=YO;x.font='900 18px Arial';x.textAlign='center';
+      x.fillText(P.icon==='star'||!P.icon?'\u2605':String(P.name).charAt(0),40,104);x.textAlign='left';
+      x.fillStyle=Y;x.font='800 21px Inter,Arial';x.fillText(P.name,66,95);
       x.fillStyle=MUT2;x.font='600 13px Inter,Arial';x.fillText('İdarə paneli',66,114);
-      ['Ana səhifə','Bonus sorğuları','Kartlar','Kampaniyalar','Hesabatlar','Ayarlar'].forEach(function(it,i){
+      menu.forEach(function(it,i){
         var y=176+i*56;
-        if(i===0){x.fillStyle='rgba(255,199,44,.14)';
+        if(i===0){x.fillStyle=rgba(Y,.14);
           x.beginPath();x.roundRect(14,y-29,198,44,10);x.fill();
           x.fillStyle=Y;x.fillRect(14,y-29,3,44);
           x.fillStyle=Y;}
         else x.fillStyle=MUT;
-        x.font='600 18px Inter,Arial';x.fillText(it,34,y);
+        x.font='600 18px Inter,Arial';x.fillText(String(it),34,y);
       });
-      [['KARTLAR','4 812'],['BU AY BONUS','₼ 1 240'],['SORĞULAR','7']].forEach(function(s,i){
+      cards.forEach(function(s,i){
         var sx=254+i*252;
         x.fillStyle='#17181D';x.beginPath();x.roundRect(sx,82,232,94,12);x.fill();
-        x.strokeStyle='rgba(255,199,44,.16)';x.stroke();
-        x.fillStyle=MUT2;x.font='700 14px Inter,Arial';x.fillText(s[0],sx+20,116);
-        x.fillStyle=i===1?Y:TX;x.font='800 30px Inter,Arial';x.fillText(s[1],sx+20,158);
+        x.strokeStyle=rgba(Y,.16);x.stroke();
+        x.fillStyle=MUT2;x.font='700 14px Inter,Arial';x.fillText(String(s[0]),sx+20,116);
+        x.fillStyle=i===1?Y:TX;x.font='800 30px Inter,Arial';x.fillText(String(s[1]),sx+20,158);
       });
-      x.fillStyle=MUT2;x.font='700 13px Inter,Arial';x.fillText('GÜNLÜK BONUS',258,214);
+      x.fillStyle=MUT2;x.font='700 13px Inter,Arial';x.fillText(SC.chart||'GÜNLÜK',258,214);
       [.42,.56,.38,.7,.52,.9,.64,.78].forEach(function(h,i){
         var bx=262+i*92,bh=178*h,by=420-bh;
         var gr=x.createLinearGradient(0,by,0,420);
-        if(i===5){gr.addColorStop(0,'#FFE08A');gr.addColorStop(1,'rgba(255,199,44,.25)')}
-        else{gr.addColorStop(0,'rgba(255,199,44,.78)');gr.addColorStop(1,'rgba(255,199,44,.1)')}
+        if(i===5){gr.addColorStop(0,Y);gr.addColorStop(1,rgba(Y,.25))}
+        else{gr.addColorStop(0,rgba(Y,.72));gr.addColorStop(1,rgba(Y,.1))}
         x.fillStyle=gr;x.beginPath();x.roundRect(bx,by,64,bh,[6,6,0,0]);x.fill();
       });
-      x.strokeStyle='rgba(255,199,44,.2)';x.beginPath();x.moveTo(254,420.5);x.lineTo(1000,420.5);x.stroke();
-      [['Kart •••8527 · Filial 2','+0,42 ₼'],['Kart •••1904 · Filial 1','+1,16 ₼'],['Kampaniya · Həftəsonu','aktiv']].forEach(function(r,i){
-        var ry=470+i*52;
-        x.fillStyle=TX;x.font='600 19px Inter,Arial';x.fillText(r[0],258,ry);
+      x.strokeStyle=rgba(Y,.2);x.beginPath();x.moveTo(254,420.5);x.lineTo(1000,420.5);x.stroke();
+      rows.forEach(function(r,i){
+        var ry=470+i*52,v=String(r[1]==null?'':r[1]);
+        x.fillStyle=TX;x.font='600 19px Inter,Arial';x.fillText(String(r[0]),258,ry);
         x.fillStyle=Y;x.font='700 19px Inter,Arial';
-        x.fillText(r[1],1000-x.measureText(r[1]).width,ry);
-        if(i<2){x.strokeStyle='rgba(235,228,214,.08)';x.beginPath();x.moveTo(254,ry+18);x.lineTo(1000,ry+18);x.stroke()}
+        x.fillText(v,1000-x.measureText(v).width,ry);
+        if(i<rows.length-1){x.strokeStyle='rgba(235,228,214,.08)';x.beginPath();x.moveTo(254,ry+18);x.lineTo(1000,ry+18);x.stroke()}
       });
       var t=new THREE.CanvasTexture(c);t.anisotropy=4;return t;
     }
@@ -1133,6 +1222,11 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
         KF=[[0,hero],[H*.5,hero],[H*1.1,heroOut]];
         return;
       }
+      if(!fly){
+        /* uçan sözlər yoxdursa: noutbuk hero-dan sonra əriyir */
+        KF=[[0,hero],[H*.35,hero],[H*.95,{fx:hero.fx,fy:hero.fy,sz:hero.sz,so:.92,al:1,rv:0}]];
+        return;
+      }
       var flyS={fx:.5,fy:.5,sz:Math.min(.6,W/H*.78),so:0,al:.42,rv:1};
       var gone={fx:.5,fy:.5,sz:flyS.sz*1.15,so:0,al:.42,rv:0};
       var ft=docTop(fly),fe=ft+fly.offsetHeight-innerHeight;
@@ -1189,7 +1283,7 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
       var lidT=calm?1:(since<0?0:eOut(clamp((since-100)/1800,0,1)));
       lid.rotation.x=lerp(1.5,-.22,lidT);
       var vw=VH*cam.aspect,s=st.sz*VH/3.9;
-      var fyNow=calm?st.fy-sc:st.fy;   /* calm: model səhifə ilə birlikdə sürüşür */
+      var fyNow=(calm||!fly)?st.fy-sc:st.fy;   /* calm və ya uçan söz yoxdursa: model səhifə ilə sürüşür */
       rig.scale.setScalar(s);
       rig.position.set((st.fx-.5)*vw,(.5-fyNow)*VH+(calm?0:Math.sin(t*.8)*.05*s),0);
       rig.rotation.y=(calm?0:Math.sin(t*.32)*.38+sc*.55)-.15+cmx*.3;
