@@ -130,29 +130,6 @@ window.APEX_PRODUCTS = [
   },
 
   {
-    id: 'sayim',
-    name: 'ApexSoft Sayım',
-    status: 'live',
-    icon: 'clipboard',
-    theme: 'light',
-    colors: { primary: '#4338CA', dark: '#3730A3', onPrimary: '#FFFFFF' },
-    title: ['Marketlər üçün', 'anbar sayımı.'],
-    lead: '1C qalığını telefona yükləyin, ştrixkodla sayın, əskik və artığı dərhal görün.',
-    parts: [
-      ['1C-dən yükləmə', 'Excel qalıq faylı telefonda oxunur'],
-      ['Ştrixkod skanı', 'tərəzi etiketindən çəki özü yazılır'],
-      ['PDF hesabat', 'əskik, artıq və ziyan']
-    ],
-    tags: ['Android', '1C', 'Ştrixkod', 'Oflayn'],
-    phone: {
-      balanceLabel: 'Sayım', balance: '96 / 120', note: 'Əskik: 9 · Artıq: 4',
-      cardLabel: 'Ştrixkod', cardNumber: '2 000 145 007 512',
-      button: 'Skan et', listTitle: 'Fərqlər',
-      rows: [['Çay 100 q', '−2 əd'], ['Şəkər 1 kq', '+1 əd']]
-    }
-  },
-
-  {
     id: 'magaza',
     name: 'Mağaza Proqramı',
     status: 'soon',
