@@ -13,12 +13,15 @@
      ekranı bu məhsulu göstərir (yalnız biri; yoxdursa — ilk
      'new'/'live' məhsul götürülür)
    icon: 'star' | 'store' | 'scissors' | 'bread' | 'chart' |
-         'cart' | 'card' | 'phone'
+         'cart' | 'card' | 'phone' | 'box' | 'barcode' |
+         'face' | 'clipboard'
    colors: məhsulun öz brend rəngləri
      primary   — əsas rəng (düymə, vurğu)
      dark      — tünd rəng (panel fonu, başlıq)
      onPrimary — əsas rəngin üstündəki yazı rəngi
    theme: 'dark' (standart) və ya 'light' — panelin fonu
+     dark panel üçün primary açıq/parlaq olsun (tünd fonda oxunsun);
+     light panel üçün dark tünd olsun (ağ fonda başlıq rəngi)
 
    ŞABLON (vergülə diqqət edin):
    {
@@ -82,12 +85,98 @@ window.APEX_PRODUCTS = [
   },
 
   {
+    id: 'topdan',
+    name: 'ApexSoft Topdan',
+    status: 'new',
+    icon: 'box',
+    theme: 'light',
+    colors: { primary: '#0F3D6E', dark: '#0F3D6E', onPrimary: '#FFFFFF' },
+    title: ['Topdan satış üçün', 'anbar və faktura.'],
+    lead: 'Faktura, anbar, müştəri borcu və marşrut — telefonda, internetsiz.',
+    parts: [
+      ['Satış və faktura', 'PDF WhatsApp-la, termal çek'],
+      ['Anbar və barkod', 'qalıq, mədaxil, qaytarma, sayım'],
+      ['Müştəri və hesabat', 'borc, ödəniş, marşrut, mənfəət']
+    ],
+    tags: ['Android', 'Oflayn', 'Topdan satış', 'Anbar'],
+    phone: {
+      balanceLabel: 'Bu günkü satış', balance: '1 240 ₼', note: '8 faktura · 3 marşrut',
+      button: 'Yeni faktura', listTitle: 'Son fakturalar',
+      rows: [['Faktura №52', '+320 ₼'], ['Ödəniş qəbulu', '+150 ₼'], ['Qaytarma', '−24 ₼']]
+    }
+  },
+
+  {
+    id: 'ap-terminal',
+    name: 'AP Terminal',
+    status: 'live',
+    icon: 'barcode',
+    theme: 'light',
+    colors: { primary: '#1B5A4B', dark: '#1B5A4B', onPrimary: '#FFFFFF' },
+    title: ['1C mağazaları üçün', 'mobil terminal.'],
+    lead: 'Barkodu telefonla skan edin, qiymət və qalığa baxın, sənədi birbaşa 1C-yə yazın.',
+    parts: [
+      ['Android tətbiqi', 'skan, qiymət, qalıq, sayım'],
+      ['1C körpüsü', 'telefonu 1C 8.3 bazasına qoşur'],
+      ['Oflayn növbə', 'Wi-Fi olmayanda sənəd gözləyir']
+    ],
+    tags: ['Android', '1C 8.3', 'Barkod', 'Anbar'],
+    phone: {
+      balanceLabel: 'Skan edilən mal', balance: 'Süd 1L', note: 'Qalıq: 24 əd · 2,20 ₼',
+      cardLabel: 'Barkod', cardNumber: '4 760 000 123 456',
+      button: 'Sənədə əlavə et', listTitle: 'Son sənədlər',
+      rows: [['Qaimə · 12 mal', 'göndərildi'], ['Sayım · Anbar', 'aktiv']]
+    }
+  },
+
+  {
+    id: 'sayim',
+    name: 'ApexSoft Sayım',
+    status: 'live',
+    icon: 'clipboard',
+    theme: 'light',
+    colors: { primary: '#4338CA', dark: '#3730A3', onPrimary: '#FFFFFF' },
+    title: ['Marketlər üçün', 'anbar sayımı.'],
+    lead: '1C qalığını telefona yükləyin, ştrixkodla sayın, əskik və artığı dərhal görün.',
+    parts: [
+      ['1C-dən yükləmə', 'Excel qalıq faylı telefonda oxunur'],
+      ['Ştrixkod skanı', 'tərəzi etiketindən çəki özü yazılır'],
+      ['PDF hesabat', 'əskik, artıq və ziyan']
+    ],
+    tags: ['Android', '1C', 'Ştrixkod', 'Oflayn'],
+    phone: {
+      balanceLabel: 'Sayım', balance: '96 / 120', note: 'Əskik: 9 · Artıq: 4',
+      cardLabel: 'Ştrixkod', cardNumber: '2 000 145 007 512',
+      button: 'Skan et', listTitle: 'Fərqlər',
+      rows: [['Çay 100 q', '−2 əd'], ['Şəkər 1 kq', '+1 əd']]
+    }
+  },
+
+  {
     id: 'magaza',
     name: 'Mağaza Proqramı',
     status: 'soon',
     icon: 'store',
-    lead: 'Marketlər üçün kassa, anbar və hesabat — bir sistemdə.',
-    tags: ['Kassa', 'Anbar', 'Hesabat', 'Terminal']
+    lead: 'Marketlər üçün kassa, anbar, alış və hesabat — Windows proqramı.',
+    tags: ['Windows', 'Kassa', 'Anbar', '1C']
+  },
+
+  {
+    id: 'berberxana',
+    name: 'Bərbərxana Proqramı',
+    status: 'soon',
+    icon: 'scissors',
+    lead: 'Randevu, kassa, müştərilər və usta maaşı — sahibin telefonunda.',
+    tags: ['Android', 'Randevu', 'Kassa']
+  },
+
+  {
+    id: 'isci',
+    name: 'ApexSoft İşçi',
+    status: 'soon',
+    icon: 'face',
+    lead: 'Üz tanıma ilə işçi giriş-çıxışı və aylıq hesabat.',
+    tags: ['Android', 'Üz tanıma', 'Davamiyyət']
   }
 
 ];

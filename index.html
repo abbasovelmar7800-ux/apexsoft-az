@@ -186,6 +186,7 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
   line-height:1;letter-spacing:-.03em;margin-bottom:6px}
 .pp-stats span{font-size:12px;color:rgba(255,255,255,.62);font-weight:600}
 .pp-tags{margin-top:24px}
+@media (max-width:560px){.pp-badge{top:16px;right:16px}.pp-brand{padding-right:58px}}
 .pp .pp-tags span{color:var(--p);border-color:var(--pA);background:rgba(255,255,255,.05)}
 /* açıq panel (theme:'light') */
 .pp-light{background:var(--glass);border:1px solid var(--glass-b);color:var(--text);box-shadow:var(--shadow);
@@ -195,6 +196,10 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
 .pp-light .pp-brand em{border-color:rgba(11,26,51,.15)}
 .pp-light .pp-parts li{background:rgba(255,255,255,.6)}
 .pp-light .pp-stats{border-top-color:rgba(11,26,51,.1)}
+.pp-light .ph-logo,.pp-light .ph-bal b{color:#fff}
+.pp-light .ph-logo i{background:#fff}
+.pp-light .ph-logo i::after{color:var(--pk)}
+.pp-light .ph-bell{border-color:#fff}
 
 /* telefon maketi — məhsulun öz rəngləri ilə */
 .phone{display:flex;justify-content:center;perspective:1100px}
@@ -566,7 +571,11 @@ a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:12
     chart:LINE+'<path d="M4 20V11M10 20V5M16 20v-7M21 20H3"/></svg>',
     cart:LINE+'<circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 8H6.2"/></svg>',
     card:LINE+'<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg>',
-    phone:LINE+'<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>'
+    phone:LINE+'<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+    box:LINE+'<path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>',
+    barcode:LINE+'<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10 8v8M13 8v8M17 8v8"/></svg>',
+    face:LINE+'<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="10" r="3"/><path d="M7.5 17.5a5 5 0 0 1 9 0"/></svg>',
+    clipboard:LINE+'<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1M9 11l2 2 4-4M9 17h6"/></svg>'
   };
   function iconHTML(p){return ICONS[p.icon]||ICONS.star}
 
