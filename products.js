@@ -14,7 +14,13 @@
    Hero düymələri və uçan sözlər bütün məhsulları özü göstərir.
    icon: 'star' | 'store' | 'scissors' | 'bread' | 'chart' |
          'cart' | 'card' | 'phone' | 'box' | 'barcode' |
-         'face' | 'clipboard'
+         'face' | 'clipboard' | 'code'
+   need: "Sizə hansı uyğundur?" bölməsində müştərinin seçdiyi
+     ehtiyac (bir cümlə). Yoxdursa məhsul orada görünmür.
+   demo: canlı demo (istəyə görə) — saytın demo/ qovluğundakı veb versiya
+     url   — 'demo/<id>/' (D:\ApexSoft MMC\demo\build.ps1 yığır)
+     note  — demoya girmək üçün qısa qeyd (parol və s.)
+     steps — "nəyi sınayın" — 2-3 qısa addım
    colors: məhsulun öz brend rəngləri
      primary   — əsas rəng (düymə, vurğu)
      dark      — tünd rəng (panel fonu, başlıq)
@@ -32,6 +38,7 @@
      colors: { primary: '#22C55E', dark: '#0F1A14', onPrimary: '#0F1A14' },
      title: ['Kimin üçün', 'nə edir.'],
      lead: 'Bir cümlə ilə izah.',
+     need: 'Müştərinin ehtiyacı bir cümlə ilə',
      parts: [['Hissə', 'qısa izah'], ['Hissə 2', 'qısa izah']],
      stats: [[3, 'filial'], ['24/7', 'dəstək']],
      tags: ['Android', 'Hesabat'],
@@ -55,6 +62,12 @@ window.APEX_PRODUCTS = [
     colors: { primary: '#FFC72C', dark: '#15161A', onPrimary: '#15161A' },
     title: ['Şok Market üçün', 'bonus sistemi.'],
     lead: 'Kartı oxut, bonus qazan, balansı telefondan izlə.',
+    need: 'Müştərilərim bonus qazansın və geri qayıtsın',
+    demo: {
+      url: 'demo/sokbonus/',
+      note: 'Hazır müştəri: 50 123 45 67 · parol 1234 — xanalar artıq doludur.',
+      steps: ['"Daxil ol"u basın', 'Bonus balansına və kartınıza baxın', 'Kampaniyaları və tarixçəni açın']
+    },
     parts: [
       ['Şok Bonus', 'Müştəri tətbiqi'],
       ['ŞOK Nəzarət', 'Filial müdiri üçün'],
@@ -87,6 +100,12 @@ window.APEX_PRODUCTS = [
     colors: { primary: '#0F3D6E', dark: '#0F3D6E', onPrimary: '#FFFFFF' },
     title: ['Topdan satış üçün', 'anbar və faktura.'],
     lead: 'Faktura, anbar, müştəri borcu və marşrut — telefonda, internetsiz.',
+    need: 'Topdan satışı, fakturanı və borcları telefondan idarə edim',
+    demo: {
+      url: 'demo/topdan/',
+      note: 'Nümunə şirkət: mallar, müştərilər və fakturalar artıq doldurulub.',
+      steps: ['Paneldə bugünkü satışa baxın', 'Yeni faktura kəsin', 'Hesabatlarda mənfəəti görün']
+    },
     parts: [
       ['Satış və faktura', 'PDF WhatsApp-la, termal çek'],
       ['Anbar və barkod', 'qalıq, mədaxil, qaytarma, sayım'],
@@ -109,6 +128,12 @@ window.APEX_PRODUCTS = [
     colors: { primary: '#1B5A4B', dark: '#1B5A4B', onPrimary: '#FFFFFF' },
     title: ['1C mağazaları üçün', 'mobil terminal.'],
     lead: 'Barkodu telefonla skan edin, qiymət və qalığa baxın, sənədi birbaşa 1C-yə yazın.',
+    need: '1C-dəki malı telefonla skan edim, qalığa və qiymətə baxım',
+    demo: {
+      url: 'demo/apterminal/',
+      note: 'Demoda 1C əvəzinə nümunə mağaza bazası qoşulub.',
+      steps: ['Malı adı və ya barkodu ilə axtarın', 'Qiymətə və qalığa baxın', 'Sənəd yaradıb göndərin']
+    },
     parts: [
       ['Android tətbiqi', 'skan, qiymət, qalıq, sayım'],
       ['1C körpüsü', 'telefonu 1C 8.3 bazasına qoşur'],

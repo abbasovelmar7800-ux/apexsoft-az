@@ -29,7 +29,10 @@
   function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
   function pid(p,k){return String(p.id||'').replace(/[^\w-]/g,'')||('mehsul-'+k)}
   /* hər məhsula unikal id (səhifədəki digər id-lərlə də toqquşmasın) */
-  var usedIds={fly:1,asm:1,asmBox:1,ustunluk:1,elaqe:1,mehsullar:1,tezlikle:1,nav:1,intro:1,gl:1,scene3d:1,heroProds:1,navProd:1};
+  var usedIds={fly:1,asm:1,asmBox:1,ustunluk:1,elaqe:1,mehsullar:1,tezlikle:1,nav:1,intro:1,gl:1,scene3d:1,heroProds:1,navProd:1,
+    main:1,mnav:1,burger:1,uygun:1,fdOpts:1,fdOut:1,xidmetler:1,proses:1,steps:1,sual:1,contactForm:1,links:1,
+    footProd:1,footContact:1,year:1,demo:1,demoTitle:1,demoForm:1,fab:1,fabMenu:1,fabBtn:1,totop:1,
+    dv:1,dvTabs:1,dvScreen:1,dvInfo:1,dvTitle:1};
   function uid(p,k){var b=pid(p,k),u=b,n=2;while(usedIds[u])u=b+'-'+(n++);usedIds[u]=1;return u}
   LIVE.forEach(function(p,i){p._id=uid(p,i)});SOON.forEach(function(p,i){p._id=uid(p,'tez-'+i)});
   function rgb(h){var m=/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(String(h||''));if(!m)return null;var x=m[1];
@@ -54,7 +57,21 @@
     box:LINE+'<path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>',
     barcode:LINE+'<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8v8M10 8v8M13 8v8M17 8v8"/></svg>',
     face:LINE+'<path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="10" r="3"/><path d="M7.5 17.5a5 5 0 0 1 9 0"/></svg>',
-    clipboard:LINE+'<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1M9 11l2 2 4-4M9 17h6"/></svg>'
+    clipboard:LINE+'<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V3h6v1M9 11l2 2 4-4M9 17h6"/></svg>',
+    code:LINE+'<path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg>'
+  };
+  /* interfeys ikonları (forma, FAB, əlaqə) */
+  var UI={
+    arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
+    play:'<svg class="play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.53.85l10.1-6.4a1 1 0 0 0 0-1.7l-10.1-6.4A1 1 0 0 0 8 5.6z"/></svg>',
+    ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+    info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
+    mail:LINE+'<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>',
+    tel:LINE+'<path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>',
+    ig:LINE+'<rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>',
+    demo:LINE+'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M10 8.5v4l3.5-2z"/></svg>',
+    wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>'
   };
   function iconHTML(p){return ICONS[p.icon]||ICONS.star}
 
@@ -75,6 +92,22 @@
     ph.appendChild(bd);
     var nv=el('div','ph-nav');for(var k=0;k<5;k++)nv.appendChild(el('i',k?null:'on'));ph.appendChild(nv);
     wrap.appendChild(ph);return wrap;
+  }
+
+  /* məhsulun düymələri: canlı demo varsa — "Canlı demo" + "Təklif al", yoxdursa yalnız "Təklif al" */
+  function liveLink(p,cls){
+    var a=el('a',cls);a.href=p.demo.url;a.target='_blank';a.rel='noopener';a.setAttribute('data-live',p._id);
+    a.innerHTML=UI.play;a.appendChild(document.createTextNode(' Canlı demo'));return a;
+  }
+  function offerBtn(p,cls){
+    var b=el('button',cls,'Təklif al ');b.type='button';b.setAttribute('data-demo',p._id);
+    b.insertAdjacentHTML('beforeend',UI.arrow);return b;
+  }
+  function ctaRow(p){
+    var cta=el('div','pp-cta'),live=p.demo&&p.demo.url;
+    if(live)cta.appendChild(liveLink(p,'pp-btn'));
+    cta.appendChild(offerBtn(p,live?'pp-btn pp-btn-o':'pp-btn'));
+    return cta;
   }
 
   function productPanel(p,i){
@@ -101,6 +134,7 @@
         d.appendChild(b);d.appendChild(el('span',null,x[1]||''));sg.appendChild(d)});
       main.appendChild(sg)}
     if(p.tags&&p.tags.length){var tg=el('div','tags pp-tags');p.tags.forEach(function(t){tg.appendChild(el('span',null,t))});main.appendChild(tg)}
+    main.appendChild(ctaRow(p));
     pan.appendChild(main);
     if(mock)pan.appendChild(phoneMock(p));
     sec.appendChild(pan);return sec;
@@ -137,6 +171,363 @@
     });
     if(LIVE.length)hp.hidden=false;
   })();
+
+  /* ============================================================
+     ƏLAQƏ — config.js-dəki APEX_SITE-dan
+     ============================================================ */
+  var SITE=window.APEX_SITE||{};
+  var EMAIL=String(SITE.email||'info@apexsoft.az').trim();
+  var WA=String(SITE.whatsapp||'').replace(/\D/g,'');
+  var PHONE=String(SITE.phone||'').trim(),TEL=PHONE.replace(/[^\d+]/g,'');
+  var IG=String(SITE.instagram||'').replace(/^@/,'');
+  /* fərdi proqram — seçicidə və formada məhsul kimi görünür */
+  var CUSTOM={_id:'xidmetler',name:'Fərdi proqram',icon:'code',
+    colors:{primary:'#60A5FA',dark:'#1E3A8A',onPrimary:'#0B1A33'},
+    need:'Başqa — mənə fərdi proqram lazımdır',
+    title:['Ehtiyacınıza uyğun','fərdi proqram.'],
+    lead:'Mobil tətbiq, veb sayt, idarə paneli və ya 1C inteqrasiyası — biznesinizə uyğun hazırlayırıq.',
+    parts:[['Mobil tətbiq','müştəri və işçi üçün'],['Veb sayt və panel','kataloq, hesabat'],['1C inteqrasiyası','mövcud bazanıza']]};
+  var navEl=document.getElementById('nav');
+
+  /* ====== sorğu forması — e-poçt / WhatsApp mətnini hazırlayır (server lazım deyil) ====== */
+  var formN=0;
+  function field(fid,label,kind,ac,req,ph){
+    var w=el('div','fld'),lb=el('label',null,label),inp=el(kind==='area'?'textarea':'input');
+    lb.htmlFor=fid;inp.id=fid;inp.name=fid.replace(/^f\d+-/,'');
+    if(kind!=='area')inp.type=kind;
+    if(kind==='tel')inp.inputMode='tel';
+    if(ac)inp.autocomplete=ac;
+    if(req)inp.required=true;
+    if(ph)inp.placeholder=ph;
+    var m=el('span','msg');m.id=fid+'-m';inp.setAttribute('aria-describedby',m.id);
+    w.appendChild(lb);w.appendChild(inp);w.appendChild(m);return w;
+  }
+  function copyText(t,btn){
+    function ok(){btn.textContent='Kopyalandı ✓'}
+    function old(){var ta=el('textarea','sr-copy');ta.value=t;ta.setAttribute('readonly','');btn.parentNode.appendChild(ta);ta.select();
+      try{document.execCommand('copy');ok()}catch(e){}ta.remove()}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,old);else old();
+  }
+  function buildForm(host){
+    var pre='f'+(++formN)+'-',f=el('form','form');f.noValidate=true;
+    var row=el('div','f2');
+    row.appendChild(field(pre+'ad','Adınız *','text','name',true,'Adınız'));
+    row.appendChild(field(pre+'tel','Telefon *','tel','tel',true,'+994 50 000 00 00'));
+    f.appendChild(row);
+    f.appendChild(field(pre+'sirket','Şirkət','text','organization',false,'Şirkətin adı (istəyə görə)'));
+    var fs=el('fieldset','fs'),cr=el('div','chip-row');fs.appendChild(el('legend',null,'Nə ilə maraqlanırsınız?'));
+    LIVE.concat(SOON,[CUSTOM]).forEach(function(p){
+      var lb=el('label','chip'),cb=el('input');paint(lb,p);
+      lb.style.setProperty('--pdot',p.theme==='light'?'#FFFFFF':((p.colors&&p.colors.primary)||'#FFFFFF'));
+      cb.type='checkbox';cb.name='mehsul';cb.value=p.name;cb.setAttribute('data-pid',p._id);
+      lb.appendChild(cb);lb.appendChild(el('span',null,p.name));cr.appendChild(lb);
+    });
+    fs.appendChild(cr);f.appendChild(fs);
+    f.appendChild(field(pre+'mesaj','Mesaj','area',null,false,'Biznesiniz və ehtiyacınız haqqında bir neçə söz…'));
+    var act=el('div','f-actions'),bm=el('button','btn btn-main','E-poçtla göndər ');
+    bm.type='submit';bm.value='mail';bm.insertAdjacentHTML('beforeend',UI.arrow);act.appendChild(bm);
+    if(WA){var bw=el('button','btn btn-wa');bw.type='submit';bw.value='wa';bw.innerHTML=UI.wa;
+      bw.appendChild(document.createTextNode(' WhatsApp-la göndər'));act.appendChild(bw)}
+    f.appendChild(act);
+    f.appendChild(el('p','f-note',WA?'Düymə e-poçt proqramınızı və ya WhatsApp-ı hazır mətnlə açır.'
+      :'Düymə e-poçt proqramınızı hazır mətnlə açır — yalnız "Göndər"i basın.'));
+    var done=el('div','f-done');done.hidden=true;done.setAttribute('role','status');f.appendChild(done);
+    host.appendChild(f);
+
+    function val(k){var x=f.elements[k];return x?String(x.value).trim():''}
+    function setErr(k,msg){var x=f.elements[k];if(!x)return;var w=x.parentNode;
+      w.classList.toggle('err',!!msg);x.setAttribute('aria-invalid',msg?'true':'false');w.querySelector('.msg').textContent=msg}
+    f.addEventListener('input',function(e){var w=e.target.closest('.fld');if(w&&w.classList.contains('err'))setErr(e.target.name,'')});
+    var via='mail';
+    f.addEventListener('click',function(e){var b=e.target.closest('button[type=submit]');if(b)via=b.value});
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(e.submitter&&e.submitter.value)via=e.submitter.value;
+      var name=val('ad'),tel=val('tel'),co=val('sirket'),msg=val('mesaj');
+      var eName=name.length<2?'Adınızı yazın':'',eTel=tel.replace(/\D/g,'').length<7?'Telefon nömrənizi yazın':'';
+      setErr('ad',eName);setErr('tel',eTel);
+      if(eName||eTel){f.elements[eName?'ad':'tel'].focus();return}
+      var prods=[].map.call(f.querySelectorAll('input[name=mehsul]:checked'),function(c){return c.value});
+      var lines=['Salam, ApexSoft!','','Ad: '+name,'Telefon: '+tel];
+      if(co)lines.push('Şirkət: '+co);
+      if(prods.length)lines.push('Maraqlanıram: '+prods.join(', '));
+      if(msg)lines.push('','Mesaj:',msg);
+      var text=lines.join('\r\n');
+      if(via==='wa'&&WA)window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener');
+      else{via='mail';location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Sorğu'+(prods.length?': '+prods.join(', '):'')+' — '+name)
+        +'&body='+encodeURIComponent(text)}
+      done.textContent='';
+      var i=el('i');i.innerHTML=UI.check;done.appendChild(i);
+      var d=el('div');
+      d.appendChild(el('b',null,via==='wa'?'WhatsApp açıldı':'E-poçt proqramınız açıldı'));
+      d.appendChild(el('p',null,via==='wa'?'Mətn hazırdır — WhatsApp-da göndərin.'
+        :'Mətn hazırdır — "Göndər"i basın. Açılmadısa, bizə birbaşa yazın: '+EMAIL));
+      if(via!=='wa'){var cp=el('button','f-copy','Ünvanı kopyala');cp.type='button';
+        cp.addEventListener('click',function(){copyText(EMAIL,cp)});d.appendChild(cp)}
+      done.appendChild(d);done.hidden=false;
+    });
+    return {
+      select:function(pid){if(!pid)return;
+        [].forEach.call(f.querySelectorAll('input[name=mehsul]'),function(c){if(c.getAttribute('data-pid')===pid)c.checked=true})},
+      fresh:function(){done.hidden=true},
+      focus:function(){f.elements.ad.focus()}
+    };
+  }
+  var cHost=document.getElementById('contactForm'),cForm=cHost?buildForm(cHost):null;
+
+  /* ====== demo pəncərəsi ====== */
+  var dlg=document.getElementById('demo'),dForm=null;
+  function openDemo(pid){
+    if(!dlg||typeof dlg.showModal!=='function'){
+      /* <dialog> yoxdursa — əlaqə formasına apar */
+      if(cForm)cForm.select(pid);
+      var c=document.getElementById('elaqe');if(c)c.scrollIntoView({behavior:calm?'auto':'smooth'});return;
+    }
+    if(!dForm)dForm=buildForm(document.getElementById('demoForm'));
+    dForm.fresh();dForm.select(pid);
+    if(!dlg.open){dlg.classList.remove('closing');dlg.showModal();body.classList.add('modal-open')}
+    if(fine)dForm.focus();
+  }
+  function closeDemo(){
+    if(!dlg||!dlg.open||dlg.classList.contains('closing'))return;
+    if(calm){dlg.close();return}
+    dlg.classList.add('closing');
+    setTimeout(function(){dlg.close()},230);
+  }
+  if(dlg){
+    dlg.addEventListener('close',function(){dlg.classList.remove('closing');body.classList.remove('modal-open')});
+    dlg.addEventListener('cancel',function(e){e.preventDefault();closeDemo()});
+    dlg.addEventListener('click',function(e){if(e.target===dlg)closeDemo()});
+  }
+
+  /* ============================================================
+     CANLI DEMO — products.js-dəki "demo" sahəsindən.
+     Böyük ekranda telefon çərçivəsində açılır; telefonda isə link
+     özü işləyir (demo yeni vərəqdə tam ekran açılır).
+     ============================================================ */
+  var DEMOS=LIVE.filter(function(p){return p.demo&&p.demo.url});
+  var dv=document.getElementById('dv'),dvTabs=document.getElementById('dvTabs');
+  var dvScreen=document.getElementById('dvScreen'),dvInfo=document.getElementById('dvInfo');
+  var dvBig=matchMedia('(min-width:880px) and (min-height:560px)');
+  var dvCur=null,dvFrame=null;
+  if(dv&&dvTabs)DEMOS.forEach(function(p){
+    var b=el('button','dv-tab');b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-selected','false');
+    b.setAttribute('data-pid',p._id);paint(b,p);
+    var i=el('i');i.innerHTML=iconHTML(p);b.appendChild(i);b.appendChild(el('span',null,p.name));
+    b.addEventListener('click',function(){showLive(p)});dvTabs.appendChild(b);
+  });
+  function showLive(p){
+    if(dvCur===p)return;dvCur=p;
+    [].forEach.call(dvTabs.children,function(b){b.setAttribute('aria-selected',String(b.getAttribute('data-pid')===p._id))});
+    paint(dv,p);
+    if(dvFrame)dvFrame.remove();
+    dvScreen.classList.add('loading');
+    var f=el('iframe');f.title=p.name+' — canlı demo';f.src=p.demo.url;f.setAttribute('allow','camera');
+    f.addEventListener('load',function(){dvScreen.classList.remove('loading')});
+    dvScreen.appendChild(f);dvFrame=f;
+    dvInfo.textContent='';
+    dvInfo.appendChild(el('div','kick','Canlı demo'));
+    var h=el('h2',null,p.name);h.id='dvTitle';dvInfo.appendChild(h);
+    if(p.lead)dvInfo.appendChild(el('p','dv-lead',p.lead));
+    var d=p.demo;
+    if(d.note){var n=el('div','dv-note'),ni=el('i');ni.innerHTML=UI.info;n.appendChild(ni);n.appendChild(el('span',null,d.note));dvInfo.appendChild(n)}
+    if(d.steps&&d.steps.length){dvInfo.appendChild(el('p','dv-h','Nəyi sınayın'));var ol=el('ol','dv-steps');
+      d.steps.forEach(function(s){ol.appendChild(el('li',null,s))});dvInfo.appendChild(ol)}
+    var act=el('div','dv-act');
+    act.appendChild(offerBtn(p,'btn btn-main'));
+    var nw=el('a','btn btn-ghost','Yeni vərəqdə aç ');nw.href=d.url;nw.target='_blank';nw.rel='noopener';nw.insertAdjacentHTML('beforeend',UI.ext);
+    act.appendChild(nw);dvInfo.appendChild(act);
+    dvInfo.appendChild(el('p','dv-small','Demoda nümunə məlumatlar var — real hesablara və serverlərə qoşulmur.'));
+  }
+  /* true — pəncərədə açıldı; false — link öz işini görsün (kiçik ekran, köhnə brauzer) */
+  function openLive(pid){
+    if(!dv||typeof dv.showModal!=='function'||!dvBig.matches||!DEMOS.length)return false;
+    var p=DEMOS.filter(function(x){return x._id===pid})[0]||DEMOS[0];
+    showLive(p);
+    if(!dv.open){dv.classList.remove('closing');dv.showModal();body.classList.add('modal-open');glPaused=true}
+    return true;
+  }
+  function closeLive(now){
+    if(!dv||!dv.open||dv.classList.contains('closing'))return;
+    if(now||calm){dv.close();return}
+    dv.classList.add('closing');setTimeout(function(){dv.close()},230);
+  }
+  if(dv){
+    dv.addEventListener('close',function(){
+      dv.classList.remove('closing');body.classList.remove('modal-open');glPaused=false;
+      /* demo dayansın — arxada CPU yeməsin; növbəti açılışda təzədən yüklənir */
+      if(dvFrame){dvFrame.remove();dvFrame=null}dvCur=null;
+    });
+    dv.addEventListener('cancel',function(e){e.preventDefault();closeLive()});
+    dv.addEventListener('click',function(e){if(e.target===dv)closeLive()});
+  }
+
+  /* ====== mobil menyu ====== */
+  var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
+  function setMenu(o){
+    mnav.classList.toggle('open',o);mnav.setAttribute('aria-hidden',String(!o));
+    burger.setAttribute('aria-expanded',String(o));body.classList.toggle('menu-open',o);
+    if(o&&navEl)navEl.classList.remove('hide');
+  }
+  function closeMenu(){if(mnav&&mnav.classList.contains('open'))setMenu(false)}
+  if(burger&&mnav){
+    burger.addEventListener('click',function(){setMenu(!mnav.classList.contains('open'))});
+    mnav.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu()});
+    var wide=matchMedia('(min-width:1021px)');
+    if(wide.addEventListener)wide.addEventListener('change',closeMenu);else if(wide.addListener)wide.addListener(closeMenu);
+  }
+
+  /* ====== sürətli əlaqə düyməsi (FAB) ====== */
+  var fab=document.getElementById('fab'),fabBtn=document.getElementById('fabBtn'),fabMenu=document.getElementById('fabMenu');
+  function closeFab(){if(fab&&fab.classList.contains('open')){fab.classList.remove('open');fabBtn.setAttribute('aria-expanded','false')}}
+  function fabItem(cls,ic,label,href,ext){
+    var a=el(href?'a':'button',cls);
+    if(href){a.href=href;if(ext){a.target='_blank';a.rel='noopener'}}else a.type='button';
+    var i=el('i');i.innerHTML=ic;a.appendChild(i);a.appendChild(el('span',null,label));fabMenu.appendChild(a);return a;
+  }
+  if(fab&&fabBtn&&fabMenu){
+    if(IG)fabItem(null,UI.ig,'Instagram','https://instagram.com/'+encodeURIComponent(IG),true);
+    fabItem(null,UI.mail,'E-poçt','mailto:'+EMAIL);
+    if(TEL)fabItem(null,UI.tel,'Zəng et','tel:'+TEL);
+    if(WA)fabItem('wa',UI.wa,'WhatsApp','https://wa.me/'+WA,true);
+    fabItem('dm',UI.demo,'Təklif al').setAttribute('data-demo','');
+    fabBtn.addEventListener('click',function(){var o=!fab.classList.contains('open');fab.classList.toggle('open',o);
+      fabBtn.setAttribute('aria-expanded',String(o))});
+    fabMenu.addEventListener('click',function(e){if(e.target.closest('a'))closeFab()});
+    document.addEventListener('click',function(e){if(!fab.contains(e.target))closeFab()});
+  }
+
+  /* ====== ümumi: [data-demo] düymələri, Esc ====== */
+  document.addEventListener('click',function(e){
+    var t=e.target;if(!t||!t.closest)return;
+    var lv=t.closest('[data-live]');
+    if(lv){if(openLive(lv.getAttribute('data-live')||'')){e.preventDefault();closeMenu();closeFab()}return}
+    var d=t.closest('[data-demo]');
+    if(d){e.preventDefault();closeMenu();closeFab();closeLive(true);openDemo(d.getAttribute('data-demo')||'');return}
+    if(t.closest('[data-dv-close]'))closeLive();
+    if(t.closest('[data-close]'))closeDemo();
+  });
+  addEventListener('keydown',function(e){if(e.key==='Escape'){closeMenu();closeFab()}});
+
+  /* ====== əlaqə kartları + alt hissə (WhatsApp/telefon config.js-də varsa) ====== */
+  function linkCard(href,ic,title,sub,ext){
+    var a=el('a','link spot rv');a.href=href;if(ext){a.target='_blank';a.rel='noopener'}
+    var s=el('span','lic');s.innerHTML=ic;a.appendChild(s);
+    var lt=el('span','lt');lt.appendChild(el('b',null,title));lt.appendChild(el('span',null,sub));a.appendChild(lt);
+    var ar=el('span','arr','↗');ar.setAttribute('aria-hidden','true');a.appendChild(ar);return a;
+  }
+  var links=document.getElementById('links'),fc=document.getElementById('footContact');
+  function footLink(href,t,ext){var li=el('li'),a=el('a',null,t);a.href=href;if(ext){a.target='_blank';a.rel='noopener'}li.appendChild(a);return li}
+  if(TEL){if(links)links.insertBefore(linkCard('tel:'+TEL,UI.tel,'Telefon',PHONE),links.firstChild);
+    if(fc)fc.insertBefore(footLink('tel:'+TEL,PHONE),fc.firstChild)}
+  if(WA){if(links)links.insertBefore(linkCard('https://wa.me/'+WA,UI.wa,'WhatsApp',PHONE||'+'+WA,true),links.firstChild);
+    if(fc)fc.insertBefore(footLink('https://wa.me/'+WA,'WhatsApp',true),fc.firstChild)}
+  var fp=document.getElementById('footProd');
+  if(fp)LIVE.concat(SOON).forEach(function(p){var li=el('li'),a=el('a',null,p.name);a.href='#'+p._id;li.appendChild(a);fp.appendChild(li)});
+  var yr=document.getElementById('year');if(yr)yr.textContent=String(new Date().getFullYear());
+
+  /* ============================================================
+     SİZƏ HANSI UYĞUNDUR — products.js-dəki "need" sahəsindən
+     ============================================================ */
+  (function finder(){
+    var sec=document.getElementById('uygun'),opts=document.getElementById('fdOpts'),out=document.getElementById('fdOut');
+    if(!sec||!opts||!out)return;
+    var list=LIVE.filter(function(p){return p.need}).concat([CUSTOM]);
+    if(list.length<2){sec.remove();return}
+    var btns=[],cur=-1;
+    list.forEach(function(p,i){
+      var b=el('button','fd-opt rv'+(i?' rv-d'+Math.min(i,3):''));
+      b.type='button';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.tabIndex=i?-1:0;paint(b,p);
+      var ic=el('i');ic.innerHTML=iconHTML(p);b.appendChild(ic);b.appendChild(el('span',null,p.need));b.appendChild(el('span','fd-chk'));
+      b.addEventListener('click',function(){pick(i,true)});
+      b.addEventListener('keydown',function(e){
+        var k=e.key,d=(k==='ArrowDown'||k==='ArrowRight')?1:(k==='ArrowUp'||k==='ArrowLeft')?-1:0;
+        if(!d)return;e.preventDefault();var j=(i+d+list.length)%list.length;pick(j,false);btns[j].focus();
+      });
+      btns.push(b);opts.appendChild(b);
+    });
+    var em=el('div','fd-empty'),stack=el('div','fd-stack');stack.setAttribute('aria-hidden','true');
+    list.forEach(function(p){var ic=el('i');paint(ic,p);ic.innerHTML=iconHTML(p);stack.appendChild(ic)});
+    em.appendChild(stack);em.appendChild(el('p',null,'Ehtiyacınızı seçin — sizə uyğun proqramı burada göstərək.'));out.appendChild(em);
+
+    function pick(i,scroll){
+      if(i===cur)return;cur=i;var p=list[i];
+      btns.forEach(function(b,k){b.setAttribute('aria-checked',String(k===i));b.tabIndex=k===i?0:-1});
+      out.classList.remove('empty');out.textContent='';paint(out,p);
+      /* açıq temalı məhsulda əsas rəng tündür — tünd kartda ağ vurğu */
+      if(p.theme==='light'){out.style.setProperty('--p','#FFFFFF');out.style.setProperty('--pon',(p.colors&&p.colors.dark)||'#0B1A33');
+        out.style.setProperty('--pA','rgba(255,255,255,.22)');out.style.setProperty('--pG','rgba(255,255,255,.1)')}
+      var c=el('div','fd-card');
+      c.appendChild(el('span','fd-tag','Sizə uyğundur'));
+      var br=el('div','pp-brand'),ico=el('span','pp-ico');ico.innerHTML=iconHTML(p);br.appendChild(ico);br.appendChild(el('span',null,p.name));
+      c.appendChild(br);
+      var tl=[].concat(p.title||[]);
+      if(tl.length){var h=el('h3');h.appendChild(document.createTextNode(tl[0]));
+        if(tl[1]){h.appendChild(el('br'));h.appendChild(el('b',null,tl[1]))}c.appendChild(h)}
+      if(p.lead)c.appendChild(el('p','pp-lead',p.lead));
+      if(p.parts&&p.parts.length){var ul=el('ul','pp-parts');
+        p.parts.slice(0,3).forEach(function(x){var li=el('li');li.appendChild(el('b',null,x[0]));if(x[1])li.appendChild(el('span',null,x[1]));ul.appendChild(li)});
+        c.appendChild(ul)}
+      var cta=ctaRow(p);
+      if(!(p.demo&&p.demo.url)){var mo=el('a','pp-btn pp-btn-o','Ətraflı');mo.href='#'+p._id;cta.appendChild(mo)}
+      c.appendChild(cta);out.appendChild(c);
+      if(scroll&&innerWidth<880){var r=out.getBoundingClientRect();
+        if(r.top>innerHeight*.55)out.scrollIntoView({behavior:calm?'auto':'smooth',block:'center'})}
+    }
+  })();
+
+  /* ====== sual-cavab: hamar açılıb-bağlanma ====== */
+  [].forEach.call(document.querySelectorAll('.qa'),function(d){
+    var s=d.querySelector('summary'),anim=null,closing=false;
+    if(!s)return;
+    s.addEventListener('click',function(e){
+      if(calm||!d.animate)return;
+      e.preventDefault();
+      var from=d.getBoundingClientRect().height,wasClosing=anim&&closing;
+      if(anim){anim.cancel();anim=null}
+      closing=wasClosing?false:d.open;
+      var bd=d.offsetHeight-d.clientHeight,to;
+      if(closing)to=s.offsetHeight+bd;else{d.open=true;to=d.offsetHeight}
+      anim=d.animate({height:[from+'px',to+'px']},{duration:closing?300:420,easing:'cubic-bezier(.19,1,.22,1)'});
+      anim.onfinish=function(){anim=null;if(closing){d.open=false;closing=false}};
+    });
+  });
+
+  /* ====== kartlarda siçanı izləyən işıq ====== */
+  if(fine&&!calm){
+    document.addEventListener('pointermove',function(e){
+      var c=e.target&&e.target.closest&&e.target.closest('.spot');if(!c)return;
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',Math.round(e.clientX-r.left)+'px');c.style.setProperty('--my',Math.round(e.clientY-r.top)+'px');
+    },{passive:true});
+  }
+
+  /* ====== scroll: aktiv menyu, addımlar, "yuxarı" düyməsi ====== */
+  var SPY=[['mehsullar','mehsullar'],['uygun','mehsullar'],['xidmetler','xidmetler'],['proses','proses'],['sual','sual'],['elaqe','elaqe']];
+  var spyLinks=[].slice.call(document.querySelectorAll('.nav-links a.nl,.mnav a'));
+  var stepLis=[].slice.call(document.querySelectorAll('#steps .step'));
+  var totop=document.getElementById('totop'),ring=totop&&totop.querySelector('.ring'),RING=2*Math.PI*20;
+  var spyCur=null,uiQ=false;
+  function ui(){
+    uiQ=false;
+    var vh=innerHeight,y=scrollY,max=document.documentElement.scrollHeight-vh;
+    if(totop){totop.classList.toggle('show',y>vh*1.2);
+      if(ring)ring.style.strokeDashoffset=(RING*(1-clamp(max>0?y/max:0,0,1))).toFixed(1)}
+    if(stepLis.length){
+      var tops=stepLis.map(function(li){return li.getBoundingClientRect().top});
+      var row=Math.abs(tops[0]-tops[tops.length-1])<2;  /* masaüstü: hamısı bir sırada */
+      var on=stepLis.map(function(li,i){
+        return calm||(row?(vh*.8-tops[0])/(vh*.09)>=i:tops[i]<vh*.75)});
+      stepLis.forEach(function(li,i){li.classList.toggle('on',on[i]);li.classList.toggle('done',!!on[i+1])});
+    }
+    var c=null;
+    for(var i=0;i<SPY.length;i++){var e=document.getElementById(SPY[i][0]);if(!e)continue;
+      var b=e.getBoundingClientRect();if(b.top<vh*.4&&b.bottom>vh*.4)c=SPY[i][1]}
+    if(c!==spyCur){spyCur=c;spyLinks.forEach(function(a){a.classList.toggle('on',!!c&&a.getAttribute('href')==='#'+c)})}
+  }
+  function uiReq(){if(!uiQ){uiQ=true;requestAnimationFrame(ui)}}
+  addEventListener('scroll',uiReq,{passive:true});addEventListener('resize',uiReq);uiReq();
+  if(totop)totop.addEventListener('click',function(){scrollTo({top:0,behavior:calm?'auto':'smooth'})});
 
   /* ====== scroll girişləri + saylar ====== */
   function countUp(el){
@@ -238,7 +629,7 @@
   /* ============================================================
      WEBGL — three.js gec yüklənir, səhifə onu gözləmir
      ============================================================ */
-  var glFrame=null,glDead=false;
+  var glFrame=null,glDead=false,glPaused=false;
   function noGL(){
     if(glDead)return;glDead=true;
     document.documentElement.classList.add('no-gl');
@@ -254,7 +645,8 @@
   /* 12 san. ərzində yüklənməsə — statik fon qalır */
   setTimeout(function(){if(!glFrame)noGL()},12000);
 
-  function tick(now){requestAnimationFrame(tick);domFx();if(glFrame)glFrame(now)}
+  /* canlı demo açıq olanda 3D səhnə dayanır — demo rəvan işləsin */
+  function tick(now){requestAnimationFrame(tick);if(glPaused)return;domFx();if(glFrame)glFrame(now)}
   var queued=false;
   function redraw(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;domFx();if(glFrame)glFrame(performance.now())})}
   if(calm){addEventListener('scroll',redraw,{passive:true});addEventListener('resize',redraw);redraw()}

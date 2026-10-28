@@ -3,18 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com 'sha256-K8weBdw1tYgwG8jUYRKALnhtyervQF97QgkDAyxVRko='; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com 'sha256-K8weBdw1tYgwG8jUYRKALnhtyervQF97QgkDAyxVRko='; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; frame-src 'self'; worker-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#F2F7FF">
 <title>ApexSoft — Biznesiniz üçün proqram həlləri</title>
-<meta name="description" content="ApexSoft — Şok Bonus-un yaradıcısı. Azərbaycan biznesləri üçün ağıllı proqram həlləri: Şok Bonus və Mağaza Proqramı.">
+<meta name="description" content="ApexSoft MMC — Azərbaycan biznesləri üçün proqram həlləri: Şok Bonus bonus sistemi, ApexSoft Topdan anbar və faktura proqramı, 1C üçün AP Terminal. Mobil tətbiq, veb sayt və 1C inteqrasiyası.">
+<link rel="canonical" href="https://apexsoft.az/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ApexSoft">
+<meta property="og:locale" content="az_AZ">
+<meta property="og:url" content="https://apexsoft.az/">
+<meta property="og:title" content="ApexSoft — Biznesiniz üçün proqram həlləri">
+<meta property="og:description" content="Şok Bonus, ApexSoft Topdan, AP Terminal — Azərbaycan biznesləri üçün müasir proqramlar. Bir günə quraşdırma, yerli dəstək.">
+<meta property="og:image" content="https://apexsoft.az/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ApexSoft — Sürət, Dəqiqlik və Nəzarət">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231D4ED8'/%3E%3Cpath d='M50 14 C58 22, 78 40, 80 62 C81 72, 72 72, 66 66 C60 60, 56 50, 50 44 C44 50, 40 56, 36 60 L30 54 C36 44, 44 30, 50 14 Z' fill='%23FFFFFF'/%3E%3Cpath d='M30 70 C40 64, 52 56, 60 60 C64 62, 62 68, 56 70 C48 73, 38 74, 30 70 Z' fill='%23FFFFFF' opacity='.92'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=7">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ApexSoft MMC",
+  "alternateName": "ApexSoft",
+  "url": "https://apexsoft.az/",
+  "logo": "https://apexsoft.az/logo.png",
+  "email": "info@apexsoft.az",
+  "areaServed": "AZ",
+  "sameAs": ["https://instagram.com/apexsoft.az", "https://tiktok.com/@apexsoft.az"]
+}
+</script>
 </head>
 <body class="lock">
+
+<a class="skip" href="#main">Məzmuna keç</a>
 
 <!-- giriş pərdəsi -->
 <div class="intro" id="intro">
@@ -43,9 +71,9 @@
 <canvas id="gl" aria-hidden="true"></canvas>
 
 <!-- ============ NAV ============ -->
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Əsas menyu">
   <div class="shell nav-in">
-    <a class="mark" href="#">
+    <a class="mark" href="#" aria-label="ApexSoft — yuxarı">
       <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
         <path d="M50 14 C58 22, 78 40, 80 62 C81 72, 72 72, 66 66 C60 60, 56 50, 50 44 C44 50, 40 56, 36 60 L30 54 C36 44, 44 30, 50 14 Z" fill="url(#lg)"/>
         <path d="M30 70 C40 64, 52 56, 60 60 C64 62, 62 68, 56 70 C48 73, 38 74, 30 70 Z" fill="url(#lg)" opacity="0.92"/>
@@ -54,14 +82,27 @@
     </a>
     <div class="nav-links">
       <a class="nl" id="navProd" href="#mehsullar">Məhsullar</a>
-      <a class="nl" href="#ustunluk">Üstünlüklər</a>
+      <a class="nl" href="#xidmetler">Xidmətlər</a>
+      <a class="nl" href="#proses">Necə işləyirik</a>
+      <a class="nl" href="#sual">Sual-cavab</a>
       <a class="nl" href="#elaqe">Əlaqə</a>
-      <a class="ncta" href="mailto:info@apexsoft.az">Bizimlə əlaqə</a>
+      <button class="ncta" type="button" data-demo>Təklif al</button>
+      <button class="burger" id="burger" type="button" aria-label="Menyu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<main>
+<!-- mobil menyu -->
+<div class="mnav" id="mnav" aria-hidden="true">
+  <a href="#mehsullar">Məhsullar</a>
+  <a href="#xidmetler">Xidmətlər</a>
+  <a href="#proses">Necə işləyirik</a>
+  <a href="#sual">Sual-cavab</a>
+  <a href="#elaqe">Əlaqə</a>
+  <button class="btn btn-main" type="button" data-demo>Təklif al</button>
+</div>
+
+<main id="main">
 
   <!-- ============ HERO ============ -->
   <section class="shell hero">
@@ -74,7 +115,8 @@
       </h1>
       <p class="lead">Azərbaycan biznesləri üçün müasir proqram həlləri.</p>
       <div class="cta-row">
-        <a class="btn btn-main" href="mailto:info@apexsoft.az">Bizimlə əlaqə</a>
+        <a class="btn btn-main" href="#mehsullar" data-live>Canlı demonu sına <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#uygun">Sizə hansı uyğundur?</a>
       </div>
       <div class="hero-prods" id="heroProds" aria-label="Məhsullarımız" hidden></div>
     </div>
@@ -89,6 +131,100 @@
   <!-- ============ MƏHSULLAR — products.js siyahısından qurulur ============ -->
   <div id="mehsullar"></div>
 
+  <!-- ============ SİZƏ HANSI UYĞUNDUR — products.js-dəki "need" sahəsindən ============ -->
+  <section class="shell sec" id="uygun">
+    <div class="sec-head rv">
+      <div class="kick">Seçim</div>
+      <h2>Sizə hansı <span class="acc">uyğundur?</span></h2>
+      <p class="sub">Ehtiyacınızı seçin — uyğun proqramı göstərək.</p>
+    </div>
+    <div class="finder">
+      <div class="fd-opts" id="fdOpts" role="radiogroup" aria-label="Ehtiyacınız"></div>
+      <div class="fd-out empty rv rv-d1" id="fdOut" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ============ XİDMƏTLƏR ============ -->
+  <section class="shell sec" id="xidmetler">
+    <div class="sec-head rv">
+      <div class="kick">Xidmətlər</div>
+      <h2>Biznesinizə <span class="acc">fərdi proqram</span></h2>
+      <p class="sub">Hazır məhsul uyğun gəlmirsə — sizin üçün hazırlayırıq.</p>
+    </div>
+    <div class="svcs">
+      <article class="svc spot rv">
+        <span class="num" aria-hidden="true">01</span>
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
+        </div>
+        <h3>Mobil tətbiqlər</h3>
+        <p>Müştəri və işçi üçün sürətli tətbiqlər — internet olmayanda da işləyir.</p>
+        <div class="tags"><span>Android</span><span>Oflayn</span><span>Barkod</span></div>
+      </article>
+      <article class="svc spot rv rv-d1">
+        <span class="num" aria-hidden="true">02</span>
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 9h18M8 22h8M12 18v4"/></svg>
+        </div>
+        <h3>Veb sayt və idarə panelləri</h3>
+        <p>Şirkət saytı, onlayn kataloq, hesabat və kampaniya panelləri.</p>
+        <div class="tags"><span>Sayt</span><span>Panel</span><span>Hesabat</span></div>
+      </article>
+      <article class="svc spot rv">
+        <span class="num" aria-hidden="true">03</span>
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7H6a4 4 0 0 0 0 8h3M15 7h3a4 4 0 0 1 0 8h-3M8 11h8"/></svg>
+        </div>
+        <h3>1C inteqrasiyası</h3>
+        <p>Mövcud 1C 8.3 bazanızı telefona, sayta və tətbiqə qoşuruq.</p>
+        <div class="tags"><span>1C 8.3</span><span>Anbar</span><span>Sənəd</span></div>
+      </article>
+      <article class="svc spot rv rv-d1">
+        <span class="num" aria-hidden="true">04</span>
+        <div class="ficon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6 15h4"/></svg>
+        </div>
+        <h3>Bonus və sadiqlik sistemləri</h3>
+        <p>Kart, bonus və kampaniyalar — müştəriləriniz yenidən qayıtsın.</p>
+        <div class="tags"><span>Bonus kartı</span><span>Kampaniya</span><span>Hesabat</span></div>
+      </article>
+    </div>
+    <div class="sec-cta rv">
+      <button class="btn btn-main" type="button" data-demo="xidmetler">Layihənizi danışaq <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+  </section>
+
+  <!-- ============ NECƏ İŞLƏYİRİK ============ -->
+  <section class="shell sec" id="proses">
+    <div class="sec-head rv">
+      <div class="kick">Proses</div>
+      <h2>Necə <span class="acc">işləyirik</span></h2>
+      <p class="sub">İlk zəngdən işləyən proqrama qədər — dörd addım.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li class="step rv">
+        <span class="sn">01</span>
+        <h3>Tanışlıq</h3>
+        <p>Biznesinizi dinləyirik: nə lazımdır, necə işləyirsiniz.</p>
+      </li>
+      <li class="step rv rv-d1">
+        <span class="sn">02</span>
+        <h3>Quraşdırma</h3>
+        <p>Proqramı qurub sizin işinizə uyğun sazlayırıq — bir gündə.</p>
+      </li>
+      <li class="step rv rv-d2">
+        <span class="sn">03</span>
+        <h3>Təlim</h3>
+        <p>İşçilərinizə göstəririk — kassir yarım saata öyrənir.</p>
+      </li>
+      <li class="step rv rv-d3">
+        <span class="sn">04</span>
+        <h3>Dəstək</h3>
+        <p>Telefonla və yerində, öz dilinizdə yanınızdayıq.</p>
+      </li>
+    </ol>
+  </section>
+
   <!-- ============ ÜSTÜNLÜKLƏR ============ -->
   <section class="shell sec" id="ustunluk">
     <div class="sec-head rv">
@@ -96,28 +232,28 @@
       <h2>Niyə <span class="acc">ApexSoft?</span></h2>
     </div>
     <div class="feats">
-      <div class="feat rv">
+      <div class="feat spot rv">
         <div class="ficon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13.5H11L9.5 22 19 10h-6.5L13 2z"/></svg>
         </div>
         <h3>Sürətli quraşdırma</h3>
         <p>Bir günə qurulur — sabahdan işləyirsiniz.</p>
       </div>
-      <div class="feat rv rv-d1">
+      <div class="feat spot rv rv-d1">
         <div class="ficon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"/><rect x="2.5" y="13" width="4.5" height="7" rx="2"/><rect x="17" y="13" width="4.5" height="7" rx="2"/><path d="M20 20v1a2 2 0 0 1-2 2h-4"/></svg>
         </div>
         <h3>Yerli dəstək</h3>
         <p>Öz dilinizdə, telefonla və yerində.</p>
       </div>
-      <div class="feat rv rv-d2">
+      <div class="feat spot rv rv-d2">
         <div class="ficon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2.5"/><path d="M3 9h18M8 22h8M12 18v4"/></svg>
         </div>
         <h3>Sadə interfeys</h3>
         <p>Kassir yarım saata öyrənir.</p>
       </div>
-      <div class="feat rv rv-d3">
+      <div class="feat spot rv rv-d3">
         <div class="ficon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 4.8 3.2 8.4 7.5 10 4.3-1.6 7.5-5.2 7.5-10v-6L12 2.5z"/><path d="m9 11.8 2.2 2.2 4-4.3"/></svg>
         </div>
@@ -146,34 +282,87 @@
     </div>
   </section>
 
+  <!-- ============ SUAL-CAVAB ============ -->
+  <section class="shell sec" id="sual">
+    <div class="sec-head rv">
+      <div class="kick">Sual-cavab</div>
+      <h2>Tez-tez verilən <span class="acc">suallar</span></h2>
+    </div>
+    <div class="faq">
+      <details class="qa rv">
+        <summary>Almadan əvvəl sınaya bilərəm?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bəli. Hər məhsulun canlı demosu saytdadır — məhsulun yanındakı "Canlı demo" düyməsini basın və nümunə məlumatlarla dərhal sınayın. Heç nə yükləmək lazım deyil.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>Quraşdırma nə qədər vaxt aparır?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bir gün. Proqramı quraşdırıb sazlayırıq — ertəsi gündən işləyirsiniz.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>İnternet olmayanda işləyir?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bəli. ApexSoft Topdan internetsiz işləyir. AP Terminal-da isə Wi-Fi olmayanda sənədlər növbədə gözləyir və bağlantı gələndə 1C-yə göndərilir.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>1C ilə işləyir?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bəli. AP Terminal telefonu birbaşa 1C 8.3 bazasına qoşur, Şok Bonus-un idarə paneli də 1C ilə inteqrasiya olunub.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>Hansı cihazlarda işləyir?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>ApexSoft Topdan və AP Terminal Android telefonlarda işləyir — ayrıca bahalı terminal almaq lazım deyil.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>İşçilərimiz öyrənə biləcəkmi?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bəli. İnterfeys sadədir — kassir yarım saata öyrənir. Quraşdırmadan sonra işçilərinizə özümüz göstəririk.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>Məlumatlarım itə bilərmi?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Xeyr. Məlumatların avtomatik ehtiyat nüsxəsi çıxarılır — heç nə itmir.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>Qiymət neçəyədir?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Qiymət biznesinizin ölçüsündən — filial və cihaz sayından asılıdır. Bizə yazın, sizə uyğun təklif hazırlayaq.</p></div>
+      </details>
+      <details class="qa rv">
+        <summary>Bizə xüsusi proqram hazırlaya bilərsiniz?<i class="qa-ic" aria-hidden="true"></i></summary>
+        <div class="qa-a"><p>Bəli. Hazır məhsullarımız uyğun gəlmirsə, ehtiyacınıza uyğun tətbiq, sayt və ya idarə paneli hazırlayırıq.</p></div>
+      </details>
+    </div>
+  </section>
+
   <!-- ============ ƏLAQƏ ============ -->
   <section class="shell sec" id="elaqe">
     <div class="sec-head rv">
       <div class="kick">Əlaqə</div>
       <h2>Bizimlə <span class="acc">danışın</span></h2>
+      <p class="sub">Sorğunu doldurun və ya birbaşa yazın.</p>
     </div>
-    <div class="links">
-      <a class="link rv" href="https://instagram.com/apexsoft.az" target="_blank" rel="noopener">
-        <span class="lic">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#1D4ED8" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="#1D4ED8" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.3" fill="#1D4ED8"/></svg>
-        </span>
-        <span class="lt"><b>Instagram</b><span>@apexsoft.az</span></span>
-        <span class="arr" aria-hidden="true">↗</span>
-      </a>
-      <a class="link rv rv-d1" href="https://tiktok.com/@apexsoft.az" target="_blank" rel="noopener">
-        <span class="lic">
-          <svg viewBox="0 0 24 24" fill="#1D4ED8" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.4 3.5 3.6v2.5c-1.2.1-2.3-.3-3.5-1v6.4c0 3.3-2.4 5.5-5.4 5.5-2.8 0-5.1-2.1-5.1-4.9 0-3 2.5-5 5.6-4.6v2.7c-.5-.2-1-.2-1.5-.1-1.1.2-1.9 1-1.8 2.2.1 1.2 1 1.9 2.1 1.9 1.2 0 2-.9 2-2.2V3h3.6z"/></svg>
-        </span>
-        <span class="lt"><b>TikTok</b><span>@apexsoft.az</span></span>
-        <span class="arr" aria-hidden="true">↗</span>
-      </a>
-      <a class="link rv rv-d2" href="mailto:info@apexsoft.az">
-        <span class="lic">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#1D4ED8" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round"/></svg>
-        </span>
-        <span class="lt"><b>E-poçt</b><span>info@apexsoft.az</span></span>
-        <span class="arr" aria-hidden="true">↗</span>
-      </a>
+    <div class="contact">
+      <div class="card cform rv" id="contactForm">
+        <h3>Sorğu göndərin</h3>
+        <p>Demo, qiymət və ya fərdi layihə — yazın, sizinlə əlaqə saxlayaq.</p>
+      </div>
+      <div class="links" id="links">
+        <a class="link spot rv" href="https://instagram.com/apexsoft.az" target="_blank" rel="noopener">
+          <span class="lic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#1D4ED8" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="#1D4ED8" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.3" fill="#1D4ED8"/></svg>
+          </span>
+          <span class="lt"><b>Instagram</b><span>@apexsoft.az</span></span>
+          <span class="arr" aria-hidden="true">↗</span>
+        </a>
+        <a class="link spot rv rv-d1" href="https://tiktok.com/@apexsoft.az" target="_blank" rel="noopener">
+          <span class="lic">
+            <svg viewBox="0 0 24 24" fill="#1D4ED8" aria-hidden="true"><path d="M16.5 3c.3 2.1 1.5 3.4 3.5 3.6v2.5c-1.2.1-2.3-.3-3.5-1v6.4c0 3.3-2.4 5.5-5.4 5.5-2.8 0-5.1-2.1-5.1-4.9 0-3 2.5-5 5.6-4.6v2.7c-.5-.2-1-.2-1.5-.1-1.1.2-1.9 1-1.8 2.2.1 1.2 1 1.9 2.1 1.9 1.2 0 2-.9 2-2.2V3h3.6z"/></svg>
+          </span>
+          <span class="lt"><b>TikTok</b><span>@apexsoft.az</span></span>
+          <span class="arr" aria-hidden="true">↗</span>
+        </a>
+        <a class="link spot rv rv-d2" href="mailto:info@apexsoft.az">
+          <span class="lic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#1D4ED8" stroke-width="1.7"/><path d="M4 7l8 6 8-6" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <span class="lt"><b>E-poçt</b><span>info@apexsoft.az</span></span>
+          <span class="arr" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -181,17 +370,83 @@
 
 <!-- ============ ALT ============ -->
 <footer class="foot">
+  <div class="shell foot-grid">
+    <div class="f-brand">
+      <a class="mark" href="#" aria-label="ApexSoft — yuxarı">
+        <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 14 C58 22, 78 40, 80 62 C81 72, 72 72, 66 66 C60 60, 56 50, 50 44 C44 50, 40 56, 36 60 L30 54 C36 44, 44 30, 50 14 Z" fill="url(#lg)"/><path d="M30 70 C40 64, 52 56, 60 60 C64 62, 62 68, 56 70 C48 73, 38 74, 30 70 Z" fill="url(#lg)" opacity="0.92"/></svg>
+        <span>Apex<b class="acc">Soft</b></span>
+      </a>
+      <p>Azərbaycan biznesləri üçün müasir proqram həlləri — yerli komandadan.</p>
+    </div>
+    <div class="f-col">
+      <h4>Məhsullar</h4>
+      <ul id="footProd"></ul>
+    </div>
+    <div class="f-col">
+      <h4>Şirkət</h4>
+      <ul>
+        <li><a href="#xidmetler">Xidmətlər</a></li>
+        <li><a href="#proses">Necə işləyirik</a></li>
+        <li><a href="#sual">Sual-cavab</a></li>
+        <li><a href="#elaqe">Əlaqə</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Əlaqə</h4>
+      <ul id="footContact">
+        <li><a href="mailto:info@apexsoft.az">info@apexsoft.az</a></li>
+        <li><a href="https://instagram.com/apexsoft.az" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://tiktok.com/@apexsoft.az" target="_blank" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
   <div class="shell foot-in">
-    <span class="fmark">
-      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 14 C58 22, 78 40, 80 62 C81 72, 72 72, 66 66 C60 60, 56 50, 50 44 C44 50, 40 56, 36 60 L30 54 C36 44, 44 30, 50 14 Z" fill="url(#lg)"/><path d="M30 70 C40 64, 52 56, 60 60 C64 62, 62 68, 56 70 C48 73, 38 74, 30 70 Z" fill="url(#lg)" opacity="0.92"/></svg>
-      <b>ApexSoft</b>&nbsp;· Azərbaycan · 2026
-    </span>
+    <span>© <span id="year">2026</span> ApexSoft MMC. Bütün hüquqlar qorunur.</span>
     <span>Biznesiniz üçün ağıllı proqramlar</span>
   </div>
 </footer>
 
+<!-- ============ DEMO PƏNCƏRƏSİ ============ -->
+<dialog class="modal" id="demo" aria-labelledby="demoTitle">
+  <div class="m-in">
+    <button class="m-x" type="button" data-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="kick">Sorğu</div>
+    <h2 id="demoTitle">Təklif <span class="acc">alın</span></h2>
+    <p class="m-sub">Məlumatları yazın — qiyməti hesablayıb sizinlə əlaqə saxlayaq.</p>
+    <div id="demoForm"></div>
+  </div>
+</dialog>
+
+<!-- ============ CANLI DEMO — products.js-dəki "demo" sahəsindən ============ -->
+<dialog class="dv" id="dv" aria-labelledby="dvTitle">
+  <div class="dv-in">
+    <div class="dv-top">
+      <div class="dv-tabs" id="dvTabs" role="tablist" aria-label="Məhsul seçin"></div>
+      <button class="m-x" type="button" data-dv-close aria-label="Bağla"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="dv-body">
+      <div class="dv-phone"><div class="dv-screen" id="dvScreen"><span class="dv-wait" aria-hidden="true"></span></div></div>
+      <div class="dv-info" id="dvInfo"><h2 id="dvTitle">Canlı demo</h2></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ============ SÜRƏTLİ ƏLAQƏ + YUXARI ============ -->
+<div class="fab" id="fab">
+  <button class="totop" id="totop" type="button" aria-label="Yuxarı qalx">
+    <svg class="tt-ring" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"/><circle class="ring" cx="24" cy="24" r="20"/></svg>
+    <svg class="tt-ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+  <div class="fab-menu" id="fabMenu"></div>
+  <button class="fab-btn" id="fabBtn" type="button" aria-label="Bizimlə əlaqə" aria-expanded="false" aria-controls="fabMenu">
+    <svg class="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.4A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+    <svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+</div>
+
 <noscript><style>.rv{opacity:1;transform:none;filter:none}.sec-head h2{clip-path:none}.intro{display:none}body.lock{overflow:auto}.hero h1 .w i{transform:none}.hero .lead,.cta-row{opacity:1;transform:none;filter:none}</style></noscript>
-<script src="products.js?v=7"></script>
-<script src="app.js?v=6"></script>
+<script src="config.js?v=1"></script>
+<script src="products.js?v=9"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
