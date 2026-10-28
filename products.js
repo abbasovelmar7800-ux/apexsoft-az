@@ -17,6 +17,11 @@
          'face' | 'clipboard' | 'code'
    need: "Sizə hansı uyğundur?" bölməsində müştərinin seçdiyi
      ehtiyac (bir cümlə). Yoxdursa məhsul orada görünmür.
+   kind: 'case' — müştəri üçün xüsusi hazırlanmış layihə (satılmır):
+     "Müştəri layihəsi" nişanı, düymə "Bənzərini sifariş et",
+     seçicidə "Nümunə layihə" kimi çıxır
+     caseNote — seçicidə göstərilən bir cümlə ("... üçün hazırlamışıq")
+     chip     — formadakı seçimin adı (məs. 'Bonus sistemi')
    demo: canlı demo (istəyə görə) — saytın demo/ qovluğundakı veb versiya
      url   — 'demo/<id>/' (D:\ApexSoft MMC\demo\build.ps1 yığır)
      note  — demoya girmək üçün qısa qeyd (parol və s.)
@@ -63,11 +68,10 @@ window.APEX_PRODUCTS = [
     title: ['Şok Market üçün', 'bonus sistemi.'],
     lead: 'Kartı oxut, bonus qazan, balansı telefondan izlə.',
     need: 'Müştərilərim bonus qazansın və geri qayıtsın',
-    demo: {
-      url: 'demo/sokbonus/',
-      note: 'Hazır müştəri: 50 123 45 67 · parol 1234 — xanalar artıq doludur.',
-      steps: ['"Daxil ol"u basın', 'Bonus balansına və kartınıza baxın', 'Kampaniyaları və tarixçəni açın']
-    },
+    /* Şok Market üçün xüsusi hazırlanıb — satılmır, nümunə kimi göstərilir */
+    kind: 'case',
+    caseNote: 'Bu sistemi Şok Market üçün hazırlamışıq — sizin mağazanız üçün də öz brendinizlə qura bilərik.',
+    chip: 'Bonus sistemi',
     parts: [
       ['Şok Bonus', 'Müştəri tətbiqi'],
       ['ŞOK Nəzarət', 'Filial müdiri üçün'],

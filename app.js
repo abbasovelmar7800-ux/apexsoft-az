@@ -105,6 +105,8 @@
   }
   function ctaRow(p){
     var cta=el('div','pp-cta'),live=p.demo&&p.demo.url;
+    /* müştəri layihəsi satılmır — bənzərini sifariş etmək olar */
+    if(p.kind==='case'){var b=offerBtn(p,'pp-btn');b.firstChild.nodeValue='Bənzərini sifariş et ';cta.appendChild(b);return cta}
     if(live)cta.appendChild(liveLink(p,'pp-btn'));
     cta.appendChild(offerBtn(p,live?'pp-btn pp-btn-o':'pp-btn'));
     return cta;
@@ -115,7 +117,8 @@
     var mock=!!p.phone;
     var pan=el('div','pp rv'+(p.theme==='light'?' pp-light':'')+(mock?(i%2?' pp-flip':''):' pp-single'));
     paint(pan,p);
-    if(p.status==='new')pan.appendChild(el('span','pp-badge','Yeni'));
+    var badge=p.kind==='case'?'Müştəri layihəsi':p.status==='new'?'Yeni':'';
+    if(badge)pan.appendChild(el('span','pp-badge',badge));
     var main=el('div','pp-main');
     var brand=el('div','pp-brand'),ico=el('span','pp-ico');ico.innerHTML=iconHTML(p);
     brand.appendChild(ico);brand.appendChild(el('span',null,p.name));brand.appendChild(el('em',null,'ApexSoft tərəfindən'));
@@ -220,7 +223,7 @@
       var lb=el('label','chip'),cb=el('input');paint(lb,p);
       lb.style.setProperty('--pdot',p.theme==='light'?'#FFFFFF':((p.colors&&p.colors.primary)||'#FFFFFF'));
       cb.type='checkbox';cb.name='mehsul';cb.value=p.name;cb.setAttribute('data-pid',p._id);
-      lb.appendChild(cb);lb.appendChild(el('span',null,p.name));cr.appendChild(lb);
+      cb.value=p.chip||p.name;lb.appendChild(cb);lb.appendChild(el('span',null,p.chip||p.name));cr.appendChild(lb);
     });
     fs.appendChild(cr);f.appendChild(fs);
     f.appendChild(field(pre+'mesaj','Mesaj','area',null,false,'Biznesiniz və ehtiyacınız haqqında bir neçə söz…'));
@@ -465,13 +468,14 @@
       if(p.theme==='light'){out.style.setProperty('--p','#FFFFFF');out.style.setProperty('--pon',(p.colors&&p.colors.dark)||'#0B1A33');
         out.style.setProperty('--pA','rgba(255,255,255,.22)');out.style.setProperty('--pG','rgba(255,255,255,.1)')}
       var c=el('div','fd-card');
-      c.appendChild(el('span','fd-tag','Sizə uyğundur'));
+      c.appendChild(el('span','fd-tag',p.kind==='case'?'Nümunə layihə':'Sizə uyğundur'));
       var br=el('div','pp-brand'),ico=el('span','pp-ico');ico.innerHTML=iconHTML(p);br.appendChild(ico);br.appendChild(el('span',null,p.name));
       c.appendChild(br);
       var tl=[].concat(p.title||[]);
       if(tl.length){var h=el('h3');h.appendChild(document.createTextNode(tl[0]));
         if(tl[1]){h.appendChild(el('br'));h.appendChild(el('b',null,tl[1]))}c.appendChild(h)}
       if(p.lead)c.appendChild(el('p','pp-lead',p.lead));
+      if(p.caseNote)c.appendChild(el('p','fd-case',p.caseNote));
       if(p.parts&&p.parts.length){var ul=el('ul','pp-parts');
         p.parts.slice(0,3).forEach(function(x){var li=el('li');li.appendChild(el('b',null,x[0]));if(x[1])li.appendChild(el('span',null,x[1]));ul.appendChild(li)});
         c.appendChild(ul)}

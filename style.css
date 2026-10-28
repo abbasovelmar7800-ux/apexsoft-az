@@ -454,6 +454,10 @@ button:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-
 .fd-card h3 b{font-weight:800;color:var(--p)}
 .fd-card .pp-lead{margin-bottom:22px}
 .fd-card .pp-parts{margin-bottom:0}
+.fd-case{margin:-6px 0 20px;padding:12px 14px;border-radius:14px;font-size:14px;line-height:1.55;font-weight:600;
+  color:#fff;background:rgba(255,255,255,.06);border:1px solid var(--pA)}
+/* telefonda nişan yuxarıda, öz sətrində — uzun yazı ("Müştəri layihəsi") brendin üstünə düşməsin */
+@media (max-width:560px){.pp-badge{position:static;display:inline-block;margin-bottom:18px}.pp-brand{padding-right:0}}
 .fd-card .pp-cta{margin-top:24px}
 
 /* ============ XİDMƏTLƏR ============ */
