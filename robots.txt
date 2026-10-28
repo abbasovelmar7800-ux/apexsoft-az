@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /demo/
+Disallow: /stat/
 
 Sitemap: https://apexsoft.az/sitemap.xml

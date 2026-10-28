@@ -176,6 +176,25 @@
   })();
 
   /* ============================================================
+     SAYĞAC — abacus.jasoncameron.dev (hesabsız, yalnız rəqəm artırır;
+     ad, telefon və s. göndərilmir). Nəticələr: apexsoft.az/stat/
+     Hər brauzer gündə bir ziyarət sayılır; localhost və /stat/-da
+     "məni sayma" seçilmiş brauzer sayılmır.
+     ============================================================ */
+  var STAT='https://abacus.jasoncameron.dev/hit/apexsoft.az/';
+  var counting=/(^|\.)apexsoft\.az$/.test(location.hostname)&&!navigator.webdriver&&!!window.fetch;
+  try{if(localStorage.getItem('apx-me'))counting=false}catch(e){}
+  function count(k){
+    if(!counting)return;
+    try{fetch(STAT+k,{credentials:'omit',keepalive:true,referrerPolicy:'no-referrer'}).catch(function(){})}catch(e){}
+  }
+  (function(){
+    var day=new Date(Date.now()+144e5).toISOString().slice(0,10).replace(/-/g,''); /* Bakı vaxtı, UTC+4 */
+    var last=null;try{last=localStorage.getItem('apx-v');localStorage.setItem('apx-v',day)}catch(e){}
+    if(last!==day){count('ziyaret');count('gun-'+day)}
+  })();
+
+  /* ============================================================
      ƏLAQƏ — config.js-dəki APEX_SITE-dan
      ============================================================ */
   var SITE=window.APEX_SITE||{};
@@ -264,6 +283,7 @@
       else if(!EMAIL)return;
       else{via='mail';location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Sorğu'+(prods.length?': '+prods.join(', '):'')+' — '+name)
         +'&body='+encodeURIComponent(text)}
+      count('sorgu');
       done.textContent='';
       var i=el('i');i.innerHTML=UI.check;done.appendChild(i);
       var d=el('div');
@@ -332,7 +352,7 @@
     dvScreen.classList.add('loading');
     var f=el('iframe');f.title=p.name+' — canlı demo';f.src=p.demo.url;f.setAttribute('allow','camera');
     f.addEventListener('load',function(){dvScreen.classList.remove('loading')});
-    dvScreen.appendChild(f);dvFrame=f;
+    dvScreen.appendChild(f);dvFrame=f;count('demo-'+p._id);
     dvInfo.textContent='';
     dvInfo.appendChild(el('div','kick','Canlı demo'));
     var h=el('h2',null,p.name);h.id='dvTitle';dvInfo.appendChild(h);
@@ -408,8 +428,13 @@
   /* ====== ümumi: [data-demo] düymələri, Esc ====== */
   document.addEventListener('click',function(e){
     var t=e.target;if(!t||!t.closest)return;
+    var a=t.closest('a[href]'),h=a?a.getAttribute('href')||'':'';
+    if(h.indexOf('https://wa.me/')===0)count('whatsapp');else if(h.indexOf('tel:')===0)count('zeng');
     var lv=t.closest('[data-live]');
-    if(lv){if(openLive(lv.getAttribute('data-live')||'')){e.preventDefault();closeMenu();closeFab()}return}
+    if(lv){var lid=lv.getAttribute('data-live')||'';
+      if(openLive(lid)){e.preventDefault();closeMenu();closeFab()}
+      else if(DEMOS.some(function(x){return x._id===lid}))count('demo-'+lid);
+      return}
     var d=t.closest('[data-demo]');
     if(d){e.preventDefault();closeMenu();closeFab();closeLive(true);openDemo(d.getAttribute('data-demo')||'');return}
     if(t.closest('[data-dv-close]'))closeLive();

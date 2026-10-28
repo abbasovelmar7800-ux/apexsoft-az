@@ -1,0 +1,58 @@
+/* Statistika səhifəsi — əsas tokenlər /style.css-dən gəlir */
+.st{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:28px 16px 64px}
+.st-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:34px}
+.st-ref{padding:10px 18px;font-size:14px}
+.st h1{font-size:clamp(28px,5vw,40px);font-weight:800}
+.st-sub{color:var(--muted);font-size:14px;margin:8px 0 22px;min-height:1.4em}
+.st h2{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:16px}
+
+.st-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+.st-k,.st-card{background:var(--glass);border:1px solid var(--glass-b);border-radius:20px;box-shadow:var(--shadow)}
+.st-k{padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.st-k span{font-size:13px;color:var(--muted);font-weight:500}
+.st-k b{font-family:'Montserrat',sans-serif;font-size:clamp(26px,4vw,34px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.st-card{padding:20px 20px 18px;margin-bottom:12px}
+
+.st-chart{position:relative}
+.st-bars{position:relative;display:flex;align-items:stretch;gap:2px;height:224px}
+.st-bars::after{content:'';position:absolute;left:0;right:0;bottom:24px;height:1px;background:var(--line);pointer-events:none}
+.st-col{flex:1;display:flex;flex-direction:column;min-width:0;outline:none;border-radius:8px;cursor:default}
+.st-col:focus-visible{box-shadow:0 0 0 2px var(--acc)}
+.st-track{flex:1;display:flex;align-items:flex-end;justify-content:center;padding:18px 0 0}
+.st-bar{position:relative;width:min(70%,28px);background:var(--acc);border-radius:4px 4px 0 0;transition:opacity .2s}
+.st-bar.zero{height:2px;background:var(--line);border-radius:0}
+.st-col.today .st-bar:not(.zero){background:var(--acc2)}
+.st-bars:hover .st-col:not(:hover) .st-bar:not(.zero){opacity:.45}
+.st-val{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);margin-bottom:4px;font-size:12px;font-weight:700;
+  color:var(--text);white-space:nowrap;font-variant-numeric:tabular-nums}
+.st-day{display:block;text-align:center;font-size:11px;color:var(--muted);padding-top:6px;height:24px;flex:none;white-space:nowrap}
+.st-col.today .st-day{color:var(--text);font-weight:700}
+.st-tip{position:absolute;top:-6px;left:0;max-width:100%;padding:7px 11px;border-radius:10px;font-size:12.5px;font-weight:600;
+  color:#fff;background:#0B1A33;box-shadow:0 10px 24px rgba(11,26,51,.22);pointer-events:none;white-space:nowrap}
+
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.st-grid .st-card{margin-bottom:0}
+.st-grid+.st-card{margin-top:12px}
+.st-list{list-style:none}
+.st-list li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.st-list li:first-child{border-top:0;padding-top:0}
+.st-list b{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+
+.st-me{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.st-me h2{margin-bottom:6px}
+.st-me p{font-size:14px;line-height:1.55;color:var(--muted);max-width:520px}
+.st-sw{flex:none;width:52px;height:30px;border-radius:99px;border:0;background:rgba(11,26,51,.18);position:relative;cursor:pointer;transition:background .25s}
+.st-sw i{position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(11,26,51,.25);transition:transform .25s var(--ease)}
+.st-sw[aria-checked="true"]{background:var(--acc)}
+.st-sw[aria-checked="true"] i{transform:translateX(22px)}
+.st-sw:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.st-sw:disabled{opacity:.4;cursor:not-allowed}
+.st-note{font-size:13px;line-height:1.6;color:var(--muted);margin-top:18px}
+
+@media (max-width:640px){
+  .st-kpis{grid-template-columns:1fr 1fr}
+  .st-grid{grid-template-columns:1fr}
+  .st-day{font-size:10px}
+  .st-bars{height:194px}
+}
+@media (prefers-reduced-motion:reduce){.st-bar,.st-sw,.st-sw i{transition:none}}
