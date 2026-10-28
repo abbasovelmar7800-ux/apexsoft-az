@@ -176,7 +176,7 @@
      ƏLAQƏ — config.js-dəki APEX_SITE-dan
      ============================================================ */
   var SITE=window.APEX_SITE||{};
-  var EMAIL=String(SITE.email||'info@apexsoft.az').trim();
+  var EMAIL=String(SITE.email||'').trim();
   var WA=String(SITE.whatsapp||'').replace(/\D/g,'');
   var PHONE=String(SITE.phone||'').trim(),TEL=PHONE.replace(/[^\d+]/g,'');
   var IG=String(SITE.instagram||'').replace(/^@/,'');
@@ -224,13 +224,17 @@
     });
     fs.appendChild(cr);f.appendChild(fs);
     f.appendChild(field(pre+'mesaj','Mesaj','area',null,false,'Biznesiniz və ehtiyacınız haqqında bir neçə söz…'));
-    var act=el('div','f-actions'),bm=el('button','btn btn-main','E-poçtla göndər ');
-    bm.type='submit';bm.value='mail';bm.insertAdjacentHTML('beforeend',UI.arrow);act.appendChild(bm);
+    /* göndərmə yolları config.js-dən: WhatsApp əsasdır, e-poçt yalnız yazılıbsa */
+    var act=el('div','f-actions');
     if(WA){var bw=el('button','btn btn-wa');bw.type='submit';bw.value='wa';bw.innerHTML=UI.wa;
       bw.appendChild(document.createTextNode(' WhatsApp-la göndər'));act.appendChild(bw)}
+    if(EMAIL){var bm=el('button',WA?'btn btn-ghost':'btn btn-main','E-poçtla göndər ');
+      bm.type='submit';bm.value='mail';bm.insertAdjacentHTML('beforeend',UI.arrow);act.appendChild(bm)}
     f.appendChild(act);
-    f.appendChild(el('p','f-note',WA?'Düymə e-poçt proqramınızı və ya WhatsApp-ı hazır mətnlə açır.'
-      :'Düymə e-poçt proqramınızı hazır mətnlə açır — yalnız "Göndər"i basın.'));
+    f.appendChild(el('p','f-note',WA&&EMAIL?'Düymə WhatsApp-ı və ya e-poçt proqramınızı hazır mətnlə açır.'
+      :WA?'Düymə WhatsApp-ı hazır mətnlə açır — yalnız "Göndər"i basın.'
+      :EMAIL?'Düymə e-poçt proqramınızı hazır mətnlə açır — yalnız "Göndər"i basın.'
+      :PHONE?'Bizə zəng edin: '+PHONE:''));
     var done=el('div','f-done');done.hidden=true;done.setAttribute('role','status');f.appendChild(done);
     host.appendChild(f);
 
@@ -238,7 +242,7 @@
     function setErr(k,msg){var x=f.elements[k];if(!x)return;var w=x.parentNode;
       w.classList.toggle('err',!!msg);x.setAttribute('aria-invalid',msg?'true':'false');w.querySelector('.msg').textContent=msg}
     f.addEventListener('input',function(e){var w=e.target.closest('.fld');if(w&&w.classList.contains('err'))setErr(e.target.name,'')});
-    var via='mail';
+    var via=WA?'wa':'mail';
     f.addEventListener('click',function(e){var b=e.target.closest('button[type=submit]');if(b)via=b.value});
     f.addEventListener('submit',function(e){
       e.preventDefault();
@@ -253,7 +257,8 @@
       if(prods.length)lines.push('Maraqlanıram: '+prods.join(', '));
       if(msg)lines.push('','Mesaj:',msg);
       var text=lines.join('\r\n');
-      if(via==='wa'&&WA)window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener');
+      if(WA&&(via==='wa'||!EMAIL)){via='wa';window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(text),'_blank','noopener')}
+      else if(!EMAIL)return;
       else{via='mail';location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Sorğu'+(prods.length?': '+prods.join(', '):'')+' — '+name)
         +'&body='+encodeURIComponent(text)}
       done.textContent='';
@@ -387,7 +392,7 @@
   }
   if(fab&&fabBtn&&fabMenu){
     if(IG)fabItem(null,UI.ig,'Instagram','https://instagram.com/'+encodeURIComponent(IG),true);
-    fabItem(null,UI.mail,'E-poçt','mailto:'+EMAIL);
+    if(EMAIL)fabItem(null,UI.mail,'E-poçt','mailto:'+EMAIL);
     if(TEL)fabItem(null,UI.tel,'Zəng et','tel:'+TEL);
     if(WA)fabItem('wa',UI.wa,'WhatsApp','https://wa.me/'+WA,true);
     fabItem('dm',UI.demo,'Təklif al').setAttribute('data-demo','');
@@ -418,6 +423,8 @@
   }
   var links=document.getElementById('links'),fc=document.getElementById('footContact');
   function footLink(href,t,ext){var li=el('li'),a=el('a',null,t);a.href=href;if(ext){a.target='_blank';a.rel='noopener'}li.appendChild(a);return li}
+  if(EMAIL){if(links)links.appendChild(linkCard('mailto:'+EMAIL,UI.mail,'E-poçt',EMAIL));
+    if(fc)fc.insertBefore(footLink('mailto:'+EMAIL,EMAIL),fc.firstChild)}
   if(TEL){if(links)links.insertBefore(linkCard('tel:'+TEL,UI.tel,'Telefon',PHONE),links.firstChild);
     if(fc)fc.insertBefore(footLink('tel:'+TEL,PHONE),fc.firstChild)}
   if(WA){if(links)links.insertBefore(linkCard('https://wa.me/'+WA,UI.wa,'WhatsApp',PHONE||'+'+WA,true),links.firstChild);
