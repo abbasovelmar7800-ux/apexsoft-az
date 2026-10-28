@@ -12,8 +12,8 @@
 
 window.APEX_SITE = {
   email: 'info@apexsoft.az',
-  whatsapp: '',
-  phone: '',
+  whatsapp: '994514111277',
+  phone: '+994 51 411 12 77',
   instagram: 'apexsoft.az',
   tiktok: 'apexsoft.az'
 };
