@@ -2002,6 +2002,9 @@ limitations under the License.
 --------------------------------------------------------------------------------
 cross_file
 flutter_plugin_android_lifecycle
+google_sign_in_android
+google_sign_in_ios
+google_sign_in_web
 local_auth_android
 local_auth_platform_interface
 path_provider
@@ -6200,6 +6203,9 @@ SOFTWARE.
 
 --------------------------------------------------------------------------------
 flutter_lints
+google_identity_services_web
+google_sign_in
+google_sign_in_platform_interface
 local_auth
 local_auth_darwin
 local_auth_windows

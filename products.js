@@ -97,7 +97,7 @@ window.APEX_PRODUCTS = [
 
   {
     id: 'topdan',
-    name: 'ApexSoft Topdan',
+    name: 'Apex Mobil ERP',
     status: 'new',
     icon: 'box',
     theme: 'light',
