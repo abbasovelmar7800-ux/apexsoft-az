@@ -133,6 +133,11 @@ window.APEX_PRODUCTS = [
     title: ['Çörək sexi və təndir üçün', 'satış uçotu və istehsal.'],
     lead: 'Satış, növbə, istehsal və nisyə alan mağazaların borcu — telefonda və planşetdə, internetsiz. Onlayn kassa (NKA) deyil: fiskal çeki NKA-nız verir, proqram satış uçotunu aparır.',
     need: 'Çörək seximin satışını, istehsalını və mağaza borclarını idarə edim',
+    demo: {
+      url: 'demo/tendir/',
+      note: 'Nümunə çörək sexi: açıq növbə, satışlar, istehsal və mağaza borcları artıq doldurulub. Sahibin PIN-i: 1234.',
+      steps: ['Kassada satış edin — ədədlə və çəki ilə', 'Növbəni bağlayıb Z-hesabata baxın', 'Mağazaların nisyə borcunu görün']
+    },
     parts: [
       ['Satış', 'ədəd və çəki, barkod, nağd, kart, nisyə'],
       ['Növbə və istehsal', 'X/Z-hesabat, bişən, satılan, silinən'],
