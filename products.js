@@ -124,6 +124,29 @@ window.APEX_PRODUCTS = [
   },
 
   {
+    id: 'tendir',
+    name: 'Apex Təndir ERP',
+    status: 'new',
+    icon: 'bread',
+    theme: 'light',
+    colors: { primary: '#B4622B', dark: '#5A2E12', onPrimary: '#FFFFFF' },
+    title: ['Çörək sexi və təndir üçün', 'kassa və istehsal.'],
+    lead: 'Satış, növbə, istehsal və nisyə alan mağazaların borcu — telefonda və planşetdə, internetsiz.',
+    need: 'Çörək seximin satışını, istehsalını və mağaza borclarını idarə edim',
+    parts: [
+      ['Kassa', 'ədəd və çəki, barkod, nağd, kart, nisyə'],
+      ['Növbə və istehsal', 'X/Z-hesabat, bişən, satılan, silinən'],
+      ['Mağazalar və hesabat', 'borc, çatdırılma, PDF və Excel']
+    ],
+    tags: ['Android', 'Planşet', 'Oflayn', 'Çörək sexi'],
+    phone: {
+      balanceLabel: 'Bu günkü satış', balance: '486 ₼', note: '214 çek · 3 mağazaya çatdırılma',
+      button: 'Satış', listTitle: 'Son çeklər',
+      rows: [['Çek №214 · nağd', '+3,40 ₼'], ['Mağaza «Nur» · nisyə', '+48,00 ₼'], ['Silinmə · 6 çörək', '−4,20 ₼']]
+    }
+  },
+
+  {
     id: 'ap-terminal',
     name: 'AP Terminal',
     status: 'live',
