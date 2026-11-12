@@ -103,7 +103,7 @@ window.APEX_PRODUCTS = [
     theme: 'light',
     colors: { primary: '#0F3D6E', dark: '#0F3D6E', onPrimary: '#FFFFFF' },
     title: ['Topdan satış üçün', 'anbar və faktura.'],
-    lead: 'Faktura, anbar, müştəri borcu və marşrut — telefonda, internetsiz.',
+    lead: 'Faktura, anbar, müştəri borcu və marşrut — telefonda, internetsiz. Faktura daxili sənəddir, e-qaimə isə e-taxes.gov.az-da yazılır.',
     need: 'Topdan satışı, fakturanı və borcları telefondan idarə edim',
     demo: {
       url: 'demo/topdan/',
@@ -130,11 +130,11 @@ window.APEX_PRODUCTS = [
     icon: 'bread',
     theme: 'light',
     colors: { primary: '#B4622B', dark: '#5A2E12', onPrimary: '#FFFFFF' },
-    title: ['Çörək sexi və təndir üçün', 'kassa və istehsal.'],
-    lead: 'Satış, növbə, istehsal və nisyə alan mağazaların borcu — telefonda və planşetdə, internetsiz.',
+    title: ['Çörək sexi və təndir üçün', 'satış uçotu və istehsal.'],
+    lead: 'Satış, növbə, istehsal və nisyə alan mağazaların borcu — telefonda və planşetdə, internetsiz. Onlayn kassa (NKA) deyil: fiskal çeki NKA-nız verir, proqram satış uçotunu aparır.',
     need: 'Çörək seximin satışını, istehsalını və mağaza borclarını idarə edim',
     parts: [
-      ['Kassa', 'ədəd və çəki, barkod, nağd, kart, nisyə'],
+      ['Satış', 'ədəd və çəki, barkod, nağd, kart, nisyə'],
       ['Növbə və istehsal', 'X/Z-hesabat, bişən, satılan, silinən'],
       ['Mağazalar və hesabat', 'borc, çatdırılma, PDF və Excel']
     ],
