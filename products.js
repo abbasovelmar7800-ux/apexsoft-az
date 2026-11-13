@@ -96,6 +96,29 @@ window.APEX_PRODUCTS = [
   },
 
   {
+    id: 'apexsupply',
+    name: 'ApexSupply',
+    status: 'new',
+    icon: 'cart',
+    theme: 'light',
+    colors: { primary: '#1D4ED8', dark: '#0B2545', onPrimary: '#FFFFFF' },
+    title: ['Distribusiya firması üçün', 'ofis və ekspeditor bir sistemdə.'],
+    lead: 'Ekspeditor mağazada telefondan sifariş yazır və pul qəbul edir; ofis Windows proqramında sifarişi təsdiqləyir, faktura kəsir və malı sürücü ilə yola salır. Qalıq, borc və kassa hamı üçün eyni anda yenilənir. Faktura daxili sənəddir, e-qaimə isə e-taxes.gov.az-da yazılır.',
+    need: 'Ekspeditorlarımın sifarişini, anbarı və mağaza borclarını bir yerdən idarə edim',
+    parts: [
+      ['Ofis (Windows)', 'sifariş, anbar, alış, faktura, ƏDV, hesabat'],
+      ['Ekspeditor (Android)', 'canlı qalıq, sifariş, pul qəbulu, qəbz'],
+      ['Çatdırılma və kassa', 'sürücü, marşrut vərəqi, təhvil aktı, üzləşmə']
+    ],
+    tags: ['Windows', 'Android', 'Onlayn', 'Distribusiya'],
+    phone: {
+      balanceLabel: 'Əlimdə olan nağd', balance: '70,00 ₼', note: 'Bu gün · 3 qəbz · 75,00 ₼',
+      button: 'Pul qəbul et', listTitle: 'Bugünkü qəbzlər',
+      rows: [['QBZ-000007 · kart', '+5,00 ₼'], ['QBZ-000006 · nağd', '+10,00 ₼'], ['QBZ-000005 · nağd', '+60,00 ₼']]
+    }
+  },
+
+  {
     id: 'topdan',
     name: 'Apex Mobil ERP',
     status: 'new',
