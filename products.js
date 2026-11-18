@@ -206,7 +206,6 @@ window.APEX_PRODUCTS = [
     id: 'ap-terminal',
     name: 'AP Terminal',
     status: 'live',
-    group: 'layihe',
     icon: 'barcode',
     theme: 'light',
     colors: { primary: '#1B5A4B', dark: '#1B5A4B', onPrimary: '#FFFFFF' },
@@ -224,6 +223,7 @@ window.APEX_PRODUCTS = [
       ['Oflayn növbə', 'Wi-Fi olmayanda sənəd gözləyir']
     ],
     tags: ['Android', '1C 8.3', 'Barkod', 'Anbar'],
+    shots: ['img/apt-ana.webp', 'img/apt-alis.webp', 'img/apt-anbar.webp'],
     phone: {
       balanceLabel: 'Skan edilən mal', balance: 'Süd 1L', note: 'Qalıq: 24 əd · 2,20 ₼',
       cardLabel: 'Barkod', cardNumber: '4 760 000 123 456',
