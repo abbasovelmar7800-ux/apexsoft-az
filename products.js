@@ -9,9 +9,18 @@
      'new'  — öz bölməsi olur, üstündə "Yeni" nişanı
      'live' — öz bölməsi olur (nişansız)
      'soon' — "Tezliklə" kartı kimi kiçik göstərilir
-   featured: true — 3D noutbukun ekranı bu məhsulu göstərir və o,
-     siyahıda birinci olur (yalnız biri; yoxdursa — ilk 'new'/'live')
-   Hero düymələri və uçan sözlər bütün məhsulları özü göstərir.
+   group: 'layihe' — əsas məhsullarda deyil, aşağıdakı kiçik
+     «Layihələrimiz» bölməsində göstərilir (Şok Bonus, AP Terminal)
+   Əsas məhsullar bu siyahıdakı sıra ilə göstərilir.
+   shots: ['img/ad.webp', ...] — telefon maketlərindəki real ekran
+     şəkilləri (1-3 ədəd, 9:16, WebP ~440px en). Birincisi öndə olur.
+     Yoxdursa — aşağıdakı "phone" sahəsindən telefon maketi qurulur.
+   screen: Windows proqramının maketi (istəyə görə):
+     { title, menu: [...], heading, rows: [[№, mağaza, status, məbləğ]] }
+   flow: iş axını addımları (istəyə görə): [['Addım', 'kim / nə edir']]
+   phone.title / badge / nav / navOn — telefon maketinin başlığı, nişanı,
+     alt menyusu və seçili bəndi (istəyə görə)
+   featured: köhnə sayt üçün idi — bu dizayn ondan istifadə etmir.
    icon: 'star' | 'store' | 'scissors' | 'bread' | 'chart' |
          'cart' | 'card' | 'phone' | 'box' | 'barcode' |
          'face' | 'clipboard' | 'code'
@@ -70,6 +79,7 @@ window.APEX_PRODUCTS = [
     need: 'Müştərilərim bonus qazansın və geri qayıtsın',
     /* Şok Market üçün xüsusi hazırlanıb — satılmır, nümunə kimi göstərilir */
     kind: 'case',
+    group: 'layihe',
     caseNote: 'Bu sistemi Şok Market üçün hazırlamışıq — sizin mağazanız üçün də öz brendinizlə qura bilərik.',
     chip: 'Bonus sistemi',
     parts: [
@@ -111,7 +121,23 @@ window.APEX_PRODUCTS = [
       ['Çatdırılma və kassa', 'sürücü, marşrut vərəqi, təhvil aktı, üzləşmə']
     ],
     tags: ['Windows', 'Android', 'Onlayn', 'Distribusiya'],
+    flow: [
+      ['Sifariş', 'Ekspeditor mağazada telefondan yazır'],
+      ['Təsdiq', 'Ofis Windows proqramında təsdiqləyir'],
+      ['Faktura', 'Ofis fakturanı kəsir'],
+      ['Çatdırılma', 'Sürücü malı marşrut vərəqi ilə aparır'],
+      ['Pul qəbulu', 'Ekspeditor pulu alır, qəbz verir']
+    ],
+    /* Windows proqramının maketi (nümunə məlumatlar) */
+    screen: {
+      title: 'ApexSupply · Ofis',
+      menu: ['Sifarişlər', 'Anbar', 'Alış', 'Fakturalar', 'ƏDV', 'Hesabatlar'],
+      heading: 'Sifarişlər',
+      rows: [['S-000124', 'Günəş Market', 'Yeni', '184,50 ₼'], ['S-000123', 'Nur Market', 'Təsdiqlənib', '96,20 ₼'],
+        ['S-000122', 'Çinar Market', 'Yolda', '240,00 ₼'], ['S-000121', 'Bulaq Ərzaq', 'Çatdırılıb', '132,75 ₼']]
+    },
     phone: {
+      title: 'Kassam', badge: 'Ekspeditor', nav: ['Sifariş', 'Mağazalar', 'Kassam', 'Üzləşmə'], navOn: 2,
       balanceLabel: 'Əlimdə olan nağd', balance: '70,00 ₼', note: 'Bu gün · 3 qəbz · 75,00 ₼',
       button: 'Pul qəbul et', listTitle: 'Bugünkü qəbzlər',
       rows: [['QBZ-000007 · kart', '+5,00 ₼'], ['QBZ-000006 · nağd', '+10,00 ₼'], ['QBZ-000005 · nağd', '+60,00 ₼']]
@@ -139,6 +165,7 @@ window.APEX_PRODUCTS = [
       ['Müştəri və hesabat', 'borc, ödəniş, marşrut, mənfəət']
     ],
     tags: ['Android', 'Oflayn', 'Topdan satış', 'Anbar'],
+    shots: ['img/mobil-faktura.webp', 'img/mobil-anbar.webp', 'img/mobil-hesabat.webp'],
     phone: {
       balanceLabel: 'Bu günkü satış', balance: '1 240 ₼', note: '8 faktura · 3 marşrut',
       button: 'Yeni faktura', listTitle: 'Son fakturalar',
@@ -167,6 +194,7 @@ window.APEX_PRODUCTS = [
       ['Mağazalar və hesabat', 'borc, çatdırılma, PDF və Excel']
     ],
     tags: ['Android', 'Planşet', 'Oflayn', 'Çörək sexi'],
+    shots: ['img/tendir-kassa.webp', 'img/tendir-istehsal.webp', 'img/tendir-magaza.webp'],
     phone: {
       balanceLabel: 'Bu günkü satış', balance: '486 ₼', note: '214 çek · 3 mağazaya çatdırılma',
       button: 'Satış', listTitle: 'Son çeklər',
@@ -178,6 +206,7 @@ window.APEX_PRODUCTS = [
     id: 'ap-terminal',
     name: 'AP Terminal',
     status: 'live',
+    group: 'layihe',
     icon: 'barcode',
     theme: 'light',
     colors: { primary: '#1B5A4B', dark: '#1B5A4B', onPrimary: '#FFFFFF' },
